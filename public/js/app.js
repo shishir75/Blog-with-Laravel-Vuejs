@@ -52804,8 +52804,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
- // Vue.component("example-component",require("./components/ExampleComponent.vue").default);
 
+Vue.component("example-component", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 var app = new Vue({
   el: "#app",
   router: _router__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -52948,11 +52948,8 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
-  routes: [{
-    path: "/",
-    name: "home",
-    component: _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }]
+  routes: [// { path: "/", name: "home", component: ExampleComponent },
+  ]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
