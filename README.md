@@ -17,14 +17,16 @@
 -   How to Image intervation with Laravel (Used for image resize)
 -   How to Use lodash
 -   And much more...
-    <article class="markdown-body entry-content" itemprop="text">
-      
+
+## How to Clone this Project to Your Local Computer
+
+<article class="markdown-body entry-content" itemprop="text">
       <li> Clone the repository with git clone </li>
-       <li>Copy .env.example file to .env and edit database credentials there</li>
+      <li>Copy .env.example file to .env and edit database credentials there</li>
       <li> Run composer install</li>
       <li> Run php artisan key:generate</li>
       <li> Run php artisan migrate</li>
       <li> Run npm install</li>
        <li>Run npm run watch</li>
     <b>You are done. Happy Coding....</b>
-    </article>
+</article>
