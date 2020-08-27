@@ -4,7 +4,7 @@ import router from "./router";
 
 import AdminMaster from "./components/admin/MasterComponent.vue";
 
-Vue.component("admin-master", AdminMaster);
+Vue.component("admin-master", AdminMaster); // Global Component
 
 const app = new Vue({
     el: "#app",
