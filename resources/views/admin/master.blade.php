@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
-                            <router-link to="/post" class="nav-link">
+                            <router-link to="/category" class="nav-link">
                                 <i class="nav-icon fas fa-users blue"></i>
                                 <p>Category</p>
                             </router-link>
