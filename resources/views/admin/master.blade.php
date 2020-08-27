@@ -119,15 +119,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content-wrapper">
             <!-- Main content -->
             <div class="content">
-                <div class="container-fluid my-5">
-                    @yield('content')
-                </div><!-- /.container-fluid -->
+                <admin-master></admin-master>
             </div>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-        <example-component></example-component>
 
         <!-- Main Footer -->
         <footer class="main-footer">
