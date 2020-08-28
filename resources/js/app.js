@@ -2,6 +2,11 @@ require("./bootstrap");
 window.Vue = require("vue");
 import router from "./router";
 
+// VueX
+import Vuex from "vuex";
+
+Vue.use(Vuex);
+
 import AdminMaster from "./components/admin/MasterComponent.vue";
 
 Vue.component("admin-master", AdminMaster); // Global Component
