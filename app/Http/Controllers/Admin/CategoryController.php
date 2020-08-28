@@ -36,7 +36,15 @@ class CategoryController extends Controller
      */
     public function store( Request $request )
     {
-        return $request->all();
+        $this->validate( $request, [
+            'name' => 'required |min:2|max:50',
+        ] );
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->save();
+
+        return ['message' => "Category Created"];
     }
 
     /**

@@ -20,7 +20,14 @@
                                     class="form-control"
                                     placeholder="Enter Category Name"
                                     v-model="form.name"
+                                    :class="{
+                                        'is-invalid': form.errors.has('name')
+                                    }"
                                 />
+                                <has-error
+                                    :form="form"
+                                    field="name"
+                                ></has-error>
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -52,7 +59,8 @@ export default {
             this.form
                 .post("/category", this.form)
                 .then(result => {
-                    console.log(result.data);
+                    this.form.name = "";
+                    this.$router.push("/category");
                 })
                 .catch(err => {});
         }
