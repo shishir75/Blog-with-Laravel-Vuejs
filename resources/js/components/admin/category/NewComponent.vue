@@ -61,8 +61,17 @@ export default {
                 .then(result => {
                     this.form.name = "";
                     this.$router.push("/category");
+                    Toast.fire({
+                        icon: "success",
+                        title: "Category Created Successfully"
+                    });
                 })
-                .catch(err => {});
+                .catch(err => {
+                    Toast.fire({
+                        icon: "error",
+                        title: "Category Not Created"
+                    });
+                });
         }
     }
 };
