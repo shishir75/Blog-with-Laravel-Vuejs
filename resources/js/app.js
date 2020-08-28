@@ -4,23 +4,24 @@ import router from "./router";
 
 // VueX
 import Vuex from "vuex";
-
 Vue.use(Vuex);
+import storeData from "./store/index";
+const store = new Vuex.Store({
+    storeData
+});
 
+// Admin Master Global Component
 import AdminMaster from "./components/admin/MasterComponent.vue";
-
 Vue.component("admin-master", AdminMaster); // Global Component
 
 // V Form
 import { Form, HasError, AlertError } from "vform";
-
 window.Form = Form;
 Vue.component(HasError.name, HasError);
 Vue.component(AlertError.name, AlertError);
 
 // Sweet Alert 2
 import Swal from "sweetalert2";
-
 const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -32,10 +33,11 @@ const Toast = Swal.mixin({
         toast.addEventListener("mouseleave", Swal.resumeTimer);
     }
 });
-
 window.Toast = Toast;
 
+// Vue Instance
 const app = new Vue({
     el: "#app",
-    router
+    router,
+    store
 });
