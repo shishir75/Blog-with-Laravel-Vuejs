@@ -44,6 +44,9 @@
                                         <a
                                             href="#"
                                             class="btn btn-sm btn-danger"
+                                            @click.prevent="
+                                                deleteCategory(category.id)
+                                            "
                                             >Delete</a
                                         >
                                     </td>
@@ -62,6 +65,7 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
 export default {
     data() {
         return {};
@@ -75,7 +79,41 @@ export default {
             return this.$store.getters.getCategory;
         }
     },
-    methods: {}
+    methods: {
+        deleteCategory(id) {
+            Swal.fire({
+                title: "Are you sure?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes"
+            }).then(result => {
+                if (result.value) {
+                    axios
+                        .delete("/api/category/" + id)
+                        .then(response => {
+                            this.$store.dispatch("getCategory");
+                            Toast.fire({
+                                icon: "success",
+                                title: "Category Deleted Successfully"
+                            });
+                        })
+                        .catch(err => {
+                            Toast.fire({
+                                icon: "error",
+                                title: "Category Not Deleted"
+                            });
+                        });
+                } else {
+                    Toast.fire({
+                        icon: "info",
+                        title: "Category is Safe now!"
+                    });
+                }
+            });
+        }
+    }
 };
 </script>
 

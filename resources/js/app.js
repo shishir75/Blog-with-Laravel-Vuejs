@@ -35,6 +35,7 @@ const Toast = Swal.mixin({
     }
 });
 window.Toast = Toast;
+// window.Swal = Swal;
 
 // Vue Instance
 const app = new Vue({

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -80,7 +80,7 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update( CategoryRequest $request, Category $category )
+    public function update( Request $request, Category $category )
     {
         //
     }
@@ -91,8 +91,11 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy( Category $category )
+    public function destroy( $id )
     {
-        //
+        $category = Category::findOrFail( $id );
+
+        //dd( $category );
+        $category->delete();
     }
 }
