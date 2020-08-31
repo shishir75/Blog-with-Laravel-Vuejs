@@ -6,9 +6,7 @@ import router from "./router";
 import Vuex from "vuex";
 Vue.use(Vuex);
 import storeData from "./store/index";
-const store = new Vuex.Store({
-    storeData
-});
+const store = new Vuex.Store(storeData);
 
 // Admin Master Global Component
 import AdminMaster from "./components/admin/MasterComponent.vue";

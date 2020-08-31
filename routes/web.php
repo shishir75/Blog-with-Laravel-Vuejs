@@ -9,7 +9,7 @@ Route::get( '/', function () {
 
 Auth::routes();
 
-Route::get( '/{anypath}', 'HomeController@index' )->where( 'path', '.*' ); // it should be in this position to work
+// Route::get( '/{anypath}', 'HomeController@index' )->where( 'path', '.*' ); // it should be in this position to work
 
 Route::group( ['middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
     Route::resource( 'category', 'CategoryController' );

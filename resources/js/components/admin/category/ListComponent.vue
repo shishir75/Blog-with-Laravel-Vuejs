@@ -27,9 +27,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr
+                                    v-for="category in allCategory"
+                                    :key="category.id"
+                                >
                                     <td>1</td>
-                                    <td>Internet Explorer 4.0</td>
+                                    <td>{{ category.name }}</td>
                                     <td>
                                         <a href="#" class="btn btn-sm btn-info"
                                             >Edit</a
@@ -55,7 +58,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+        return {};
+    },
+    mounted() {
+        this.$store.dispatch("getCategory");
+    },
+    created() {},
+    computed: {
+        allCategory() {
+            return this.$store.getters.getCategory;
+        }
+    },
+    methods: {}
+};
 </script>
 
 <style scoped></style>

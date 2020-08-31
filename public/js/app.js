@@ -2064,7 +2064,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {
+    this.$store.dispatch("getCategory");
+  },
+  created: function created() {},
+  computed: {
+    allCategory: function allCategory() {
+      return this.$store.getters.getCategory;
+    }
+  },
+  methods: {}
+});
 
 /***/ }),
 
@@ -42090,7 +42107,32 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "table",
+              {
+                staticClass: "table table-bordered table-striped text-center",
+                attrs: { id: "example1" }
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.allCategory, function(category) {
+                    return _c("tr", { key: category.id }, [
+                      _c("td", [_vm._v("1")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(category.name))]),
+                      _vm._v(" "),
+                      _vm._m(1, true)
+                    ])
+                  }),
+                  0
+                )
+              ]
+            )
+          ])
         ])
       ])
     ])
@@ -42101,50 +42143,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c(
-        "table",
-        {
-          staticClass: "table table-bordered table-striped text-center",
-          attrs: { id: "example1" }
-        },
-        [
-          _c("thead", [
-            _c("tr", [
-              _c("th", [_vm._v("Serial")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Category Name")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Actions")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [
-              _c("td", [_vm._v("1")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("Internet Explorer 4.0")]),
-              _vm._v(" "),
-              _c("td", [
-                _c(
-                  "a",
-                  { staticClass: "btn btn-sm btn-info", attrs: { href: "#" } },
-                  [_vm._v("Edit")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-sm btn-danger",
-                    attrs: { href: "#" }
-                  },
-                  [_vm._v("Delete")]
-                )
-              ])
-            ])
-          ])
-        ]
-      )
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Serial")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Category Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Actions")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("a", { staticClass: "btn btn-sm btn-info", attrs: { href: "#" } }, [
+        _vm._v("Edit")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "btn btn-sm btn-danger", attrs: { href: "#" } }, [
+        _vm._v("Delete")
+      ])
     ])
   }
 ]
@@ -58786,9 +58806,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  storeData: _store_index__WEBPACK_IMPORTED_MODULE_2__["default"]
-}); // Admin Master Global Component
+var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store(_store_index__WEBPACK_IMPORTED_MODULE_2__["default"]); // Admin Master Global Component
 
 
 Vue.component("admin-master", _components_admin_MasterComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]); // Global Component
@@ -59269,18 +59287,31 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 // Steps: Actions -> State -> Mutations -> Getters
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     categories: []
   },
   getters: {
     getCategory: function getCategory(state) {
-      return state.categories = state;
+      return state.categories;
     }
   },
-  mutations: {},
-  actions: {}
+  mutations: {
+    getCategory: function getCategory(state, payload) {
+      return state.categories = payload;
+    }
+  },
+  actions: {
+    getCategory: function getCategory(context) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/category").then(function (response) {
+        console.log(response); //context.commit("getCategory", response.data.categories);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -59303,8 +59334,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/shishir/Project/Laravel-Vue-Blog-Project/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/shishir/Project/Laravel-Vue-Blog-Project/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/shishir/Project/Blog-with-Laravel-Vuejs/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/shishir/Project/Blog-with-Laravel-Vuejs/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
