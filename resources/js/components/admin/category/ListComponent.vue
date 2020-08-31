@@ -38,8 +38,12 @@
                                         {{ category.created_at | dateFormat }}
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-sm btn-info"
-                                            >Edit</a
+                                        <router-link
+                                            :to="
+                                                `/edit-category/${category.id}`
+                                            "
+                                            class="btn btn-sm btn-info"
+                                            >Edit</router-link
                                         >
                                         <a
                                             href="#"

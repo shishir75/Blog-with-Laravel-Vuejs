@@ -4,20 +4,18 @@ import HomeComponent from "./components/admin/HomeComponent.vue";
 import Ect from "./components/ExampleComponent.vue";
 import ListComponent from "./components/admin/category/ListComponent.vue";
 import NewComponent from "./components/admin/category/NewComponent.vue";
+import EditComponent from "./components/admin/category/EditComponent.vue";
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
     mode: "hash",
     routes: [
-        { path: "/home", name: "home", component: HomeComponent },
-        { path: "/post", name: "post", component: Ect },
-        { path: "/category", name: "category", component: ListComponent },
-        {
-            path: "/category/create",
-            name: "create_category",
-            component: NewComponent
-        }
+        { path: "/home", component: HomeComponent },
+        { path: "/post", component: Ect },
+        { path: "/category", component: ListComponent },
+        { path: "/category/create", component: NewComponent },
+        { path: "/edit-category/:id", component: EditComponent, props: true }
     ]
 });
 

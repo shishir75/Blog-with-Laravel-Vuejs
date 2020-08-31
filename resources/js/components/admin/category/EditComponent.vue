@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+        <h1>Edit Category - {{ this.$route.params.id }}</h1>
+    </div>
 </template>
 
 <script>
