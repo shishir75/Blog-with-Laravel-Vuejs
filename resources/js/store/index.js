@@ -19,7 +19,7 @@ export default {
     actions: {
         getCategory(context) {
             Axios.get("/api/category").then(response => {
-                console.log(response);
+                //console.log(response);
                 context.commit("getCategory", response.data.categories);
             });
         }

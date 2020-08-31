@@ -59308,7 +59308,7 @@ __webpack_require__.r(__webpack_exports__);
   actions: {
     getCategory: function getCategory(context) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/category").then(function (response) {
-        console.log(response);
+        //console.log(response);
         context.commit("getCategory", response.data.categories);
       });
     }
