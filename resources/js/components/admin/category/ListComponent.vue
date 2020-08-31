@@ -28,10 +28,10 @@
                             </thead>
                             <tbody>
                                 <tr
-                                    v-for="category in allCategory"
+                                    v-for="(category, index) in allCategory"
                                     :key="category.id"
                                 >
-                                    <td>1</td>
+                                    <td>{{ index + 1 }}</td>
                                     <td>{{ category.name }}</td>
                                     <td>
                                         <a href="#" class="btn btn-sm btn-info"

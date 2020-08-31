@@ -57,7 +57,7 @@ export default {
     methods: {
         addCategory() {
             this.form
-                .post("/category", this.form)
+                .post("/api/category", this.form)
                 .then(result => {
                     this.form.name = "";
                     this.$router.push("/category");

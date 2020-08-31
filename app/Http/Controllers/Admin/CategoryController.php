@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\Request;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        if ( !Request::ajax() ) {
+            return abort( 404 );
+        }
+        $categories = Category::latest()->get();
 
         return response()->json( [
             'categories' => $categories,
@@ -38,12 +42,8 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store( Request $request )
+    public function store( CategoryRequest $request )
     {
-        $this->validate( $request, [
-            'name' => 'required |min:2|max:50',
-        ] );
-
         $category = new Category();
         $category->name = $request->name;
         $category->save();
@@ -80,7 +80,7 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update( Request $request, Category $category )
+    public function update( CategoryRequest $request, Category $category )
     {
         //
     }

@@ -2153,7 +2153,7 @@ __webpack_require__.r(__webpack_exports__);
     addCategory: function addCategory() {
       var _this = this;
 
-      this.form.post("/category", this.form).then(function (result) {
+      this.form.post("/api/category", this.form).then(function (result) {
         _this.form.name = "";
 
         _this.$router.push("/category");
@@ -42119,9 +42119,9 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.allCategory, function(category) {
+                  _vm._l(_vm.allCategory, function(category, index) {
                     return _c("tr", { key: category.id }, [
-                      _c("td", [_vm._v("1")]),
+                      _c("td", [_vm._v(_vm._s(index + 1))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(category.name))]),
                       _vm._v(" "),
@@ -59307,8 +59307,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   actions: {
     getCategory: function getCategory(context) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/category").then(function (response) {
-        console.log(response); //context.commit("getCategory", response.data.categories);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/category").then(function (response) {
+        console.log(response);
+        context.commit("getCategory", response.data.categories);
       });
     }
   }
