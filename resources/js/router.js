@@ -8,7 +8,7 @@ import NewComponent from "./components/admin/category/NewComponent.vue";
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    mode: "history",
+    mode: "hash",
     routes: [
         { path: "/home", name: "home", component: HomeComponent },
         { path: "/post", name: "post", component: Ect },

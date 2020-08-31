@@ -16,9 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        if ( !Request::ajax() ) {
-            return abort( 404 );
-        }
+        // if ( !Request::ajax() ) {
+        //     return abort( 404 );
+        // }
         $categories = Category::latest()->get();
 
         return response()->json( [
