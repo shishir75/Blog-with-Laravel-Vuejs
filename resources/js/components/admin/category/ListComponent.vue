@@ -23,6 +23,7 @@
                                 <tr>
                                     <th>Serial</th>
                                     <th>Category Name</th>
+                                    <th>Date</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -33,6 +34,9 @@
                                 >
                                     <td>{{ index + 1 }}</td>
                                     <td>{{ category.name }}</td>
+                                    <td>
+                                        {{ category.created_at | dateFormat }}
+                                    </td>
                                     <td>
                                         <a href="#" class="btn btn-sm btn-info"
                                             >Edit</a

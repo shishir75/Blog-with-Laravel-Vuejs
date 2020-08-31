@@ -8,6 +8,9 @@ Vue.use(Vuex);
 import storeData from "./store/index";
 const store = new Vuex.Store(storeData);
 
+// Global Filter
+import filter from "./filter";
+
 // Admin Master Global Component
 import AdminMaster from "./components/admin/MasterComponent.vue";
 Vue.component("admin-master", AdminMaster); // Global Component
