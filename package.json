@@ -28,6 +28,7 @@
         "admin-lte": "^3.0.5",
         "moment": "^2.27.0",
         "sweetalert2": "^9.17.1",
+        "v-markdown-editor": "^1.2.6",
         "vform": "^1.0.1",
         "vue-router": "^3.4.3",
         "vuex": "^3.5.1"

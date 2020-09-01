@@ -61,22 +61,20 @@
                                 ></has-error>
                             </div>
                             <div class="form-group">
-                                <label for="description"
+                                <label for="description1"
                                     >Post Description</label
                                 >
-                                <textarea
-                                    class="form-control"
+                                <markdown-editor
+                                    v-model="form.description"
                                     name="description"
                                     id="description"
-                                    rows="5"
                                     placeholder="Enter Post Description"
-                                    v-model="form.description"
                                     :class="{
                                         'is-invalid': form.errors.has(
                                             'description'
                                         )
                                     }"
-                                ></textarea>
+                                ></markdown-editor>
                                 <has-error
                                     :form="form"
                                     field="description"
