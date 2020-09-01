@@ -2071,22 +2071,22 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    addCategory: function addCategory() {
+    updateCategory: function updateCategory() {
       var _this2 = this;
 
-      this.form.post("/api/category", this.form).then(function (result) {
+      this.form.put("/api/category/".concat(this.$route.params.id), this.form).then(function (result) {
         _this2.form.name = "";
 
         _this2.$router.push("/category");
 
         Toast.fire({
           icon: "success",
-          title: "Category Created Successfully"
+          title: "Category Updated Successfully"
         });
       })["catch"](function (err) {
         Toast.fire({
           icon: "error",
-          title: "Category Not Created"
+          title: "Category Not Updated"
         });
       });
     }
@@ -63432,7 +63432,7 @@ var render = function() {
               on: {
                 submit: function($event) {
                   $event.preventDefault()
-                  return _vm.addCategory($event)
+                  return _vm.updateCategory($event)
                 }
               }
             },

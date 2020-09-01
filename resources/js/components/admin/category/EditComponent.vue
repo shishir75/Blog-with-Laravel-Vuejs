@@ -8,7 +8,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form @submit.prevent="addCategory">
+                    <form @submit.prevent="updateCategory">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"
@@ -62,21 +62,21 @@ export default {
             });
     },
     methods: {
-        addCategory() {
+        updateCategory() {
             this.form
-                .post("/api/category", this.form)
+                .put(`/api/category/${this.$route.params.id}`, this.form)
                 .then(result => {
                     this.form.name = "";
                     this.$router.push("/category");
                     Toast.fire({
                         icon: "success",
-                        title: "Category Created Successfully"
+                        title: "Category Updated Successfully"
                     });
                 })
                 .catch(err => {
                     Toast.fire({
                         icon: "error",
-                        title: "Category Not Created"
+                        title: "Category Not Updated"
                     });
                 });
         }
