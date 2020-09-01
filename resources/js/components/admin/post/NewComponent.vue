@@ -48,8 +48,12 @@
                                     <option value="" disabled
                                         >Select Category</option
                                     >
-                                    <option>2</option>
-                                    <option>3</option>
+                                    <option
+                                        v-for="category in allCategory"
+                                        :key="category.id"
+                                        :value="category.id"
+                                        >{{ category.name }}</option
+                                    >
                                 </select>
                                 <has-error
                                     :form="form"
@@ -125,6 +129,14 @@ export default {
                 photo: ""
             })
         };
+    },
+    mounted() {
+        this.$store.dispatch("getCategory");
+    },
+    computed: {
+        allCategory() {
+            return this.$store.getters.getCategory;
+        }
     },
     methods: {
         addPost() {}

@@ -2543,6 +2543,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2553,6 +2557,14 @@ __webpack_require__.r(__webpack_exports__);
         photo: ""
       })
     };
+  },
+  mounted: function mounted() {
+    this.$store.dispatch("getCategory");
+  },
+  computed: {
+    allCategory: function allCategory() {
+      return this.$store.getters.getCategory;
+    }
   },
   methods: {
     addPost: function addPost() {}
@@ -64290,10 +64302,18 @@ var render = function() {
                           _vm._v("Select Category")
                         ]),
                         _vm._v(" "),
-                        _c("option", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("3")])
-                      ]
+                        _vm._l(_vm.allCategory, function(category) {
+                          return _c(
+                            "option",
+                            {
+                              key: category.id,
+                              domProps: { value: category.id }
+                            },
+                            [_vm._v(_vm._s(category.name))]
+                          )
+                        })
+                      ],
+                      2
                     ),
                     _vm._v(" "),
                     _c("has-error", {
