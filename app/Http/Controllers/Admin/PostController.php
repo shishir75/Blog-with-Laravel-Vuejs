@@ -17,7 +17,9 @@ class PostController extends Controller
     {
         $posts = Post::with( ['category', 'user'] )->latest()->get();
 
-        return $posts;
+        return response()->json( [
+            'posts' => $posts,
+        ], 200 );
     }
 
     /**

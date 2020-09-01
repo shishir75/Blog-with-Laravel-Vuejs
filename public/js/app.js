@@ -2382,7 +2382,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {
+    this.$store.dispatch("getPosts");
+  },
+  created: function created() {},
+  computed: {
+    getAllPosts: function getAllPosts() {
+      return this.$store.getters.getPosts;
+    }
+  },
+  methods: {}
+});
 
 /***/ }),
 
@@ -63889,47 +63913,62 @@ var render = function() {
               [
                 _vm._m(0),
                 _vm._v(" "),
-                _c("tbody", [
-                  _c("tr", [
-                    _c("td", [_vm._v("1")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("User")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Category")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Post Title")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Description")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Photo")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Date")]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "btn btn-sm btn-info",
-                            attrs: { to: "/edit-category" }
-                          },
-                          [_vm._v("Edit")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-sm btn-danger",
-                            attrs: { href: "#" }
-                          },
-                          [_vm._v("Delete")]
-                        )
-                      ],
-                      1
-                    )
-                  ])
-                ])
+                _c(
+                  "tbody",
+                  _vm._l(_vm.getAllPosts, function(post, index) {
+                    return _c("tr", { key: post.id }, [
+                      _c("td", [_vm._v(_vm._s(index + 1))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(post.user.name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(post.category.name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(post.title))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(post.description))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("img", {
+                          attrs: {
+                            src: post.photo,
+                            alt: "Post Photo",
+                            width: "40",
+                            height: "40"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(_vm._s(_vm._f("dateFormat")(post.created_at)))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "btn btn-sm btn-info",
+                              attrs: { to: "/edit-category" }
+                            },
+                            [_vm._v("Edit")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-sm btn-danger",
+                              attrs: { href: "#" }
+                            },
+                            [_vm._v("Delete")]
+                          )
+                        ],
+                        1
+                      )
+                    ])
+                  }),
+                  0
+                )
               ]
             )
           ])
@@ -81240,22 +81279,26 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 // Steps: Actions -> State -> Mutations -> Getters
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
-    categories: []
+    categories: [],
+    posts: []
   },
   getters: {
     getCategory: function getCategory(state) {
       return state.categories;
+    },
+    getPosts: function getPosts(state) {
+      return state.posts;
     }
   },
   mutations: {
     getCategory: function getCategory(state, payload) {
       return state.categories = payload;
+    },
+    getPosts: function getPosts(state, payload) {
+      return state.posts = payload;
     }
   },
   actions: {
@@ -81263,6 +81306,12 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/category").then(function (response) {
         //console.log(response);
         context.commit("getCategory", response.data.categories);
+      });
+    },
+    getPosts: function getPosts(context) {
+      axios.get("/api/post").then(function (response) {
+        console.log(response);
+        context.commit("getPosts", response.data.posts);
       });
     }
   }

@@ -32,14 +32,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>User</td>
-                                    <td>Category</td>
-                                    <td>Post Title</td>
-                                    <td>Description</td>
-                                    <td>Photo</td>
-                                    <td>Date</td>
+                                <tr
+                                    v-for="(post, index) in getAllPosts"
+                                    :key="post.id"
+                                >
+                                    <td>{{ index + 1 }}</td>
+                                    <td>{{ post.user.name }}</td>
+                                    <td>{{ post.category.name }}</td>
+                                    <td>{{ post.title }}</td>
+                                    <td>{{ post.description }}</td>
+                                    <td>
+                                        <img
+                                            :src="post.photo"
+                                            alt="Post Photo"
+                                            width="40"
+                                            height="40"
+                                        />
+                                    </td>
+                                    <td>{{ post.created_at | dateFormat }}</td>
 
                                     <td>
                                         <router-link
@@ -68,7 +78,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+        return {};
+    },
+    mounted() {
+        this.$store.dispatch("getPosts");
+    },
+    created() {},
+    computed: {
+        getAllPosts() {
+            return this.$store.getters.getPosts;
+        }
+    },
+    methods: {}
+};
 </script>
 
 <style></style>
