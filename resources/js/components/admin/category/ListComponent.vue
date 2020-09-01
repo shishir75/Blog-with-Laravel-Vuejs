@@ -6,7 +6,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Category List</h3>
                         <div class="card-tools">
-                            <router-link to="/category/create">
+                            <router-link to="/create-category">
                                 <button class="btn btn-primary">
                                     Add Caregory
                                 </button>

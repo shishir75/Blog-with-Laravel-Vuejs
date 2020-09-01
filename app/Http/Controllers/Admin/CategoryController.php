@@ -5,10 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
+
+// use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        if ( !Request::ajax() ) {
+            return abort( 404 );
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +24,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // if ( !Request::ajax() ) {
-        //     return abort( 404 );
-        // }
         $categories = Category::latest()->get();
 
         return response()->json( [

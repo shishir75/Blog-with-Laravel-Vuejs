@@ -9,12 +9,12 @@ import EditComponent from "./components/admin/category/EditComponent.vue";
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    mode: "hash",
+    mode: "history",
     routes: [
         { path: "/home", component: HomeComponent },
         { path: "/post", component: Ect },
         { path: "/category", component: ListComponent },
-        { path: "/category/create", component: NewComponent },
+        { path: "/create-category", component: NewComponent },
         { path: "/edit-category/:id", component: EditComponent, props: true }
     ]
 });

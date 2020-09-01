@@ -63549,7 +63549,7 @@ var render = function() {
               "div",
               { staticClass: "card-tools" },
               [
-                _c("router-link", { attrs: { to: "/category/create" } }, [
+                _c("router-link", { attrs: { to: "/create-category" } }, [
                   _c("button", { staticClass: "btn btn-primary" }, [
                     _vm._v(
                       "\n                                Add Caregory\n                            "
@@ -80830,7 +80830,7 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  mode: "hash",
+  mode: "history",
   routes: [{
     path: "/home",
     component: _components_admin_HomeComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -80841,7 +80841,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: "/category",
     component: _components_admin_category_ListComponent_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: "/category/create",
+    path: "/create-category",
     component: _components_admin_category_NewComponent_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {
     path: "/edit-category/:id",
@@ -80882,7 +80882,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   actions: {
     getCategory: function getCategory(context) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/category").then(function (response) {
+      axios.get("/api/category").then(function (response) {
         //console.log(response);
         context.commit("getCategory", response.data.categories);
       });
