@@ -2547,6 +2547,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2567,6 +2574,18 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    changePhoto: function changePhoto(event) {
+      var _this = this;
+
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this.form.photo = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
     addPost: function addPost() {}
   }
 });
@@ -64381,13 +64400,24 @@ var render = function() {
                       class: {
                         "is-invalid": _vm.form.errors.has("photo")
                       },
-                      attrs: {
-                        type: "file",
-                        name: "photo",
-                        id: "photo",
-                        placeholder: "Select Post Photo"
+                      attrs: { type: "file", name: "photo", id: "photo" },
+                      on: {
+                        change: function($event) {
+                          return _vm.changePhoto($event)
+                        }
                       }
                     }),
+                    _vm._v(" "),
+                    _vm.form.photo
+                      ? _c("img", {
+                          attrs: {
+                            src: _vm.form.photo,
+                            alt: "Post Photo",
+                            width: "80",
+                            height: "80"
+                          }
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("has-error", {
                       attrs: { form: _vm.form, field: "photo" }

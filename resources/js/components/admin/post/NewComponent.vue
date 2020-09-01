@@ -89,10 +89,17 @@
                                     class="form-control-file"
                                     name="photo"
                                     id="photo"
-                                    placeholder="Select Post Photo"
                                     :class="{
                                         'is-invalid': form.errors.has('photo')
                                     }"
+                                    @change="changePhoto($event)"
+                                />
+                                <img
+                                    v-if="form.photo"
+                                    :src="form.photo"
+                                    alt="Post Photo"
+                                    width="80"
+                                    height="80"
                                 />
                                 <has-error
                                     :form="form"
@@ -139,6 +146,15 @@ export default {
         }
     },
     methods: {
+        changePhoto(event) {
+            let file = event.target.files[0];
+            let reader = new FileReader();
+            reader.onload = e => {
+                this.form.photo = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        },
         addPost() {}
     }
 };
