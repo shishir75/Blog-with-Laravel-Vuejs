@@ -2392,6 +2392,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -63921,11 +63929,33 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(post.user.name))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(post.category.name))]),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                    " +
+                            _vm._s(
+                              _vm._f("shortLength")(post.category.name, 20)
+                            ) +
+                            "\n                                "
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(post.title))]),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                    " +
+                            _vm._s(_vm._f("shortLength")(post.title, 30)) +
+                            "\n                                "
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(post.description))]),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                    " +
+                            _vm._s(
+                              _vm._f("shortLength")(post.description, 50)
+                            ) +
+                            "\n                                "
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("td", [
                         _c("img", {
@@ -81208,6 +81238,15 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter("dateFormat", function (arg) {
   return moment__WEBPACK_IMPORTED_MODULE_1___default()(arg).format("MMM Do YYYY");
+});
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter("shortLength", function (text, length) {
+  var suffix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "...";
+
+  if (text.length > length) {
+    return text.substring(0, length) + suffix;
+  } else {
+    return text;
+  }
 });
 
 /***/ }),

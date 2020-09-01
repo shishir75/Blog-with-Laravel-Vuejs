@@ -38,9 +38,17 @@
                                 >
                                     <td>{{ index + 1 }}</td>
                                     <td>{{ post.user.name }}</td>
-                                    <td>{{ post.category.name }}</td>
-                                    <td>{{ post.title }}</td>
-                                    <td>{{ post.description }}</td>
+                                    <td>
+                                        {{
+                                            post.category.name | shortLength(20)
+                                        }}
+                                    </td>
+                                    <td>
+                                        {{ post.title | shortLength(30) }}
+                                    </td>
+                                    <td>
+                                        {{ post.description | shortLength(50) }}
+                                    </td>
                                     <td>
                                         <img
                                             :src="post.photo"
