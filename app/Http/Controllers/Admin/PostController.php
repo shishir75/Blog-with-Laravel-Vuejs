@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -38,9 +40,18 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store( Request $request )
+    public function store( PostRequest $request )
     {
-        //
+        $post = new Post();
+        $post->user_id = auth()->user()->id;
+        $post->category_id = $request->category_id;
+        $post->title = $request->title;
+        $post->slug = Str::slug( $request->title );
+        $post->description = $request->description;
+        $post->photo = $request->photo;
+        $post->save();
+
+        return ['message' => 'Post Created'];
     }
 
     /**

@@ -153,7 +153,23 @@ export default {
 
             reader.readAsDataURL(file);
         },
-        addPost() {}
+        addPost() {
+            this.form
+                .post("/api/post")
+                .then(response => {
+                    this.$router.push("/post");
+                    Toast.fire({
+                        icon: "success",
+                        title: "Post Created Successfully"
+                    });
+                })
+                .catch(error => {
+                    Toast.fire({
+                        icon: "error",
+                        title: "Post does not Create!"
+                    });
+                });
+        }
     }
 };
 </script>

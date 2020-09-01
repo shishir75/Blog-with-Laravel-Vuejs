@@ -2584,7 +2584,23 @@ __webpack_require__.r(__webpack_exports__);
 
       reader.readAsDataURL(file);
     },
-    addPost: function addPost() {}
+    addPost: function addPost() {
+      var _this2 = this;
+
+      this.form.post("/api/post").then(function (response) {
+        _this2.$router.push("/post");
+
+        Toast.fire({
+          icon: "success",
+          title: "Post Created Successfully"
+        });
+      })["catch"](function (error) {
+        Toast.fire({
+          icon: "error",
+          title: "Post does not Create!"
+        });
+      });
+    }
   }
 });
 
