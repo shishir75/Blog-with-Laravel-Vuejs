@@ -94,7 +94,7 @@
                                 />
                                 <img
                                     v-if="form.photo"
-                                    :src="postPhoto(form.photo)"
+                                    :src="postPhoto()"
                                     alt="Post Photo"
                                     width="80"
                                     height="80"
@@ -148,8 +148,29 @@ export default {
         }
     },
     methods: {
-        postPhoto(img) {
-            return "/upload/" + img;
+        changePhoto(event) {
+            let file = event.target.files[0];
+            if (file.size > 1048576) {
+                Toast.fire({
+                    icon: "error",
+                    title: "Photo size can't be more than 1MB."
+                });
+            } else {
+                let reader = new FileReader();
+                reader.onload = e => {
+                    this.form.photo = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            }
+        },
+        postPhoto() {
+            let img = this.form.photo;
+            if (img.length > 100) {
+                return this.form.photo;
+            } else {
+                return "/upload/" + this.form.photo;
+            }
         },
         updatePost() {}
     }

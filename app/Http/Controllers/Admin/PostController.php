@@ -89,10 +89,8 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id )
+    public function edit( Post $post )
     {
-        $post = Post::findOrFail( $id );
-
         return response()->json( [
             'post' => $post,
         ], 200 );

@@ -2444,8 +2444,34 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    postPhoto: function postPhoto(img) {
-      return "/upload/" + img;
+    changePhoto: function changePhoto(event) {
+      var _this2 = this;
+
+      var file = event.target.files[0];
+
+      if (file.size > 1048576) {
+        Toast.fire({
+          icon: "error",
+          title: "Photo size can't be more than 1MB."
+        });
+      } else {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          _this2.form.photo = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+    postPhoto: function postPhoto() {
+      var img = this.form.photo;
+
+      if (img.length > 100) {
+        return this.form.photo;
+      } else {
+        return "/upload/" + this.form.photo;
+      }
     },
     updatePost: function updatePost() {}
   }
@@ -86402,7 +86428,7 @@ var render = function() {
                     _vm.form.photo
                       ? _c("img", {
                           attrs: {
-                            src: _vm.postPhoto(_vm.form.photo),
+                            src: _vm.postPhoto(),
                             alt: "Post Photo",
                             width: "80",
                             height: "80"
