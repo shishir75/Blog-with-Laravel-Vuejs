@@ -2473,7 +2473,23 @@ __webpack_require__.r(__webpack_exports__);
         return "/upload/" + this.form.photo;
       }
     },
-    updatePost: function updatePost() {}
+    updatePost: function updatePost() {
+      var _this3 = this;
+
+      this.form.put("/api/post/".concat(this.$route.params.id)).then(function (response) {
+        _this3.$router.push("/post");
+
+        Toast.fire({
+          icon: "success",
+          title: "Post Updated Successfully."
+        });
+      })["catch"](function (err) {
+        Toast.fire({
+          icon: "error",
+          title: "Post is not Updated."
+        });
+      });
+    }
   }
 });
 
@@ -104211,7 +104227,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getPosts: function getPosts(context) {
       axios.get("/api/post").then(function (response) {
-        console.log(response);
+        // console.log(response);
         context.commit("getPosts", response.data.posts);
       });
     }

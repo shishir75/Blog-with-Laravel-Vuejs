@@ -105,7 +105,38 @@ class PostController extends Controller
      */
     public function update( PostRequest $request, Post $post )
     {
-        //
+        if ( $request->photo != $post->photo ) {
+
+            // Delete Old Photo
+            $path = public_path() . "/upload/";
+            $old_image = $path . $post->photo;
+            if ( file_exists( $old_image ) ) {
+                @unlink( $old_image );
+            }
+
+            // Save New Photo
+            $strpos = strpos( $request->photo, ';' );
+            $subString = Str::substr( $request->photo, 0, $strpos );
+            $extention = explode( '/', $subString )[1];
+
+            $image_name = time() . "." . $extention;
+
+            $img = Image::make( $request->photo )->resize( 200, 200 );
+            $img->save( $path . $image_name );
+
+        } else {
+            $image_name = $post->photo;
+        }
+
+        $post->user_id = auth()->user()->id;
+        $post->category_id = $request->category_id;
+        $post->title = $request->title;
+        $post->slug = Str::slug( $request->title );
+        $post->description = $request->description;
+        $post->photo = $image_name;
+        $post->save();
+
+        return ['message' => 'Post Updated'];
     }
 
     /**

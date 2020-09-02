@@ -172,7 +172,23 @@ export default {
                 return "/upload/" + this.form.photo;
             }
         },
-        updatePost() {}
+        updatePost() {
+            this.form
+                .put(`/api/post/${this.$route.params.id}`)
+                .then(response => {
+                    this.$router.push("/post");
+                    Toast.fire({
+                        icon: "success",
+                        title: "Post Updated Successfully."
+                    });
+                })
+                .catch(err => {
+                    Toast.fire({
+                        icon: "error",
+                        title: "Post is not Updated."
+                    });
+                });
+        }
     }
 };
 </script>

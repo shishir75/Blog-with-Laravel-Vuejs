@@ -30,7 +30,7 @@ export default {
         },
         getPosts(context) {
             axios.get("/api/post").then(response => {
-                console.log(response);
+                // console.log(response);
                 context.commit("getPosts", response.data.posts);
             });
         }
