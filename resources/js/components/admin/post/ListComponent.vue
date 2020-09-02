@@ -61,7 +61,7 @@
 
                                     <td>
                                         <router-link
-                                            :to="`/edit-category`"
+                                            :to="`/edit-post/${post.id}`"
                                             class="btn btn-sm btn-info"
                                             >Edit</router-link
                                         >
@@ -103,7 +103,7 @@ export default {
     },
     methods: {
         postPhoto(img) {
-            return "upload/" + img;
+            return "/upload/" + img;
         },
         deletePost(id) {
             Swal.fire({
