@@ -155,7 +155,6 @@ export default {
                 let reader = new FileReader();
                 reader.onload = e => {
                     this.form.photo = e.target.result;
-                    console.log(e.target.result);
                 };
 
                 reader.readAsDataURL(file);

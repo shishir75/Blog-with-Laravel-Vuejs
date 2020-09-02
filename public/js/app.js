@@ -2587,7 +2587,6 @@ __webpack_require__.r(__webpack_exports__);
 
         reader.onload = function (e) {
           _this.form.photo = e.target.result;
-          console.log(e.target.result);
         };
 
         reader.readAsDataURL(file);

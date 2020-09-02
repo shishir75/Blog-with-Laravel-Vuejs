@@ -7,6 +7,7 @@ use App\Http\Requests\PostRequest;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
@@ -42,13 +43,23 @@ class PostController extends Controller
      */
     public function store( PostRequest $request )
     {
+        $strpos = strpos( $request->photo, ';' );
+        $subString = Str::substr( $request->photo, 0, $strpos );
+        $extention = explode( '/', $subString )[1];
+
+        $image_name = time() . "." . $extention;
+
+        $img = Image::make( $request->photo )->resize( 200, 200 );
+        $path = public_path() . "/upload/";
+        $img->save( $path . $image_name );
+
         $post = new Post();
         $post->user_id = auth()->user()->id;
         $post->category_id = $request->category_id;
         $post->title = $request->title;
         $post->slug = Str::slug( $request->title );
         $post->description = $request->description;
-        $post->photo = $request->photo;
+        $post->photo = $image_name;
         $post->save();
 
         return ['message' => 'Post Created'];
