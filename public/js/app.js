@@ -2576,13 +2576,22 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var file = event.target.files[0];
-      var reader = new FileReader();
 
-      reader.onload = function (e) {
-        _this.form.photo = e.target.result;
-      };
+      if (file.size > 1048576) {
+        Toast.fire({
+          icon: "error",
+          title: "Photo size can't be more than 1MB."
+        });
+      } else {
+        var reader = new FileReader();
 
-      reader.readAsDataURL(file);
+        reader.onload = function (e) {
+          _this.form.photo = e.target.result;
+          console.log(e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+      }
     },
     addPost: function addPost() {
       var _this2 = this;
@@ -2597,7 +2606,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         Toast.fire({
           icon: "error",
-          title: "Post does not Create!"
+          title: "Post is not created, Try again."
         });
       });
     }
@@ -86268,7 +86277,7 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("has-error", {
-                      attrs: { form: _vm.form, field: "name" }
+                      attrs: { form: _vm.form, field: "title" }
                     })
                   ],
                   1

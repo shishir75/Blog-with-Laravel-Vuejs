@@ -29,7 +29,7 @@
                                 />
                                 <has-error
                                     :form="form"
-                                    field="name"
+                                    field="title"
                                 ></has-error>
                             </div>
                             <div class="form-group">
@@ -146,12 +146,20 @@ export default {
     methods: {
         changePhoto(event) {
             let file = event.target.files[0];
-            let reader = new FileReader();
-            reader.onload = e => {
-                this.form.photo = e.target.result;
-            };
+            if (file.size > 1048576) {
+                Toast.fire({
+                    icon: "error",
+                    title: "Photo size can't be more than 1MB."
+                });
+            } else {
+                let reader = new FileReader();
+                reader.onload = e => {
+                    this.form.photo = e.target.result;
+                    console.log(e.target.result);
+                };
 
-            reader.readAsDataURL(file);
+                reader.readAsDataURL(file);
+            }
         },
         addPost() {
             this.form
@@ -166,7 +174,7 @@ export default {
                 .catch(error => {
                     Toast.fire({
                         icon: "error",
-                        title: "Post does not Create!"
+                        title: "Post is not created, Try again."
                     });
                 });
         }
