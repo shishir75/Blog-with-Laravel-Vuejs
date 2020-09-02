@@ -5,12 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Post;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        if ( !Request::ajax() ) {
+            return abort( 404 );
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -94,7 +101,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update( Request $request, Post $post )
+    public function update( PostRequest $request, Post $post )
     {
         //
     }
@@ -105,8 +112,16 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy( Post $post )
+    public function destroy( $id )
     {
-        //
+        $post = Post::findOrFail( $id );
+
+        $image_path = public_path() . "/upload/";
+        $image = $image_path . $post->photo;
+
+        if ( file_exists( $image ) ) {
+            @unlink( $image );
+        }
+        $post->delete();
     }
 }

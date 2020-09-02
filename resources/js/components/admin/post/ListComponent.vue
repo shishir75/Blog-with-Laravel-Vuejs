@@ -51,7 +51,7 @@
                                     </td>
                                     <td>
                                         <img
-                                            :src="post.photo"
+                                            :src="postPhoto(post.photo)"
                                             alt="Post Photo"
                                             width="40"
                                             height="40"
@@ -68,6 +68,7 @@
                                         <a
                                             href="#"
                                             class="btn btn-sm btn-danger"
+                                            @click.prevent="deletePost(post.id)"
                                             >Delete</a
                                         >
                                     </td>
@@ -86,6 +87,7 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
 export default {
     data() {
         return {};
@@ -99,7 +101,44 @@ export default {
             return this.$store.getters.getPosts;
         }
     },
-    methods: {}
+    methods: {
+        postPhoto(img) {
+            return "upload/" + img;
+        },
+        deletePost(id) {
+            Swal.fire({
+                title: "Are you sure?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes"
+            }).then(result => {
+                if (result.value) {
+                    axios
+                        .delete("/api/post/" + id)
+                        .then(response => {
+                            this.$store.dispatch("getPosts");
+                            Toast.fire({
+                                icon: "success",
+                                title: "Post Deleted Successfully"
+                            });
+                        })
+                        .catch(error => {
+                            Toast.fire({
+                                icon: "error",
+                                title: "Post can't be deleted."
+                            });
+                        });
+                } else {
+                    Toast.fire({
+                        icon: "info",
+                        title: "Post is Safe now!"
+                    });
+                }
+            });
+        }
+    }
 };
 </script>
 

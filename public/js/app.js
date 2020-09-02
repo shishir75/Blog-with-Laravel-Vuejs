@@ -2313,6 +2313,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2400,6 +2402,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -2413,7 +2417,44 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getPosts;
     }
   },
-  methods: {}
+  methods: {
+    postPhoto: function postPhoto(img) {
+      return "upload/" + img;
+    },
+    deletePost: function deletePost(id) {
+      var _this = this;
+
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+        title: "Are you sure?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes"
+      }).then(function (result) {
+        if (result.value) {
+          axios["delete"]("/api/post/" + id).then(function (response) {
+            _this.$store.dispatch("getPosts");
+
+            Toast.fire({
+              icon: "success",
+              title: "Post Deleted Successfully"
+            });
+          })["catch"](function (error) {
+            Toast.fire({
+              icon: "error",
+              title: "Post can't be deleted."
+            });
+          });
+        } else {
+          Toast.fire({
+            icon: "info",
+            title: "Post is Safe now!"
+          });
+        }
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -86125,7 +86166,7 @@ var render = function() {
                       _c("td", [
                         _c("img", {
                           attrs: {
-                            src: post.photo,
+                            src: _vm.postPhoto(post.photo),
                             alt: "Post Photo",
                             width: "40",
                             height: "40"
@@ -86153,7 +86194,13 @@ var render = function() {
                             "a",
                             {
                               staticClass: "btn btn-sm btn-danger",
-                              attrs: { href: "#" }
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.deletePost(post.id)
+                                }
+                              }
                             },
                             [_vm._v("Delete")]
                           )
