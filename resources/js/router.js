@@ -8,6 +8,12 @@ import AllPost from "./components/admin/post/ListComponent.vue";
 import NewPost from "./components/admin/post/NewComponent.vue";
 import EditPost from "./components/admin/post/EditComponent.vue";
 
+// Frontend Component
+import PublicHome from "./components/public/HomeComponent.vue";
+import BlogPostsComponent from "./components/public/blog/BlogPostsComponent.vue";
+import BlogSidebarComponent from "./components/public/blog/BlogSidebarComponent.vue";
+import SingleBlogComponent from "./components/public/blog/SingleBlogComponent.vue";
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -19,7 +25,9 @@ const router = new VueRouter({
         { path: "/edit-category/:id", component: EditComponent },
         { path: "/post", component: AllPost },
         { path: "/create-post", component: NewPost },
-        { path: "/edit-post/:id", component: EditPost }
+        { path: "/edit-post/:id", component: EditPost },
+
+        { path: "/", component: PublicHome } // Frontend Route
     ]
 });
 

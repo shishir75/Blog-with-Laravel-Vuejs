@@ -15,6 +15,10 @@ import filter from "./filter";
 import AdminMaster from "./components/admin/MasterComponent.vue";
 Vue.component("admin-master", AdminMaster); // Global Component
 
+// Frontend Master Global Component
+import PublicMaster from "./components/public/MasterComponent.vue";
+Vue.component("public-master", PublicMaster);
+
 // V Form
 import { Form, HasError, AlertError } from "vform";
 window.Form = Form;
