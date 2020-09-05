@@ -3,7 +3,8 @@
 export default {
     state: {
         categories: [],
-        posts: []
+        posts: [],
+        blogPosts: []
     },
     getters: {
         getCategory(state) {
@@ -11,6 +12,9 @@ export default {
         },
         getPosts(state) {
             return state.posts;
+        },
+        getBlogPosts(state) {
+            return state.blogPosts;
         }
     },
     mutations: {
@@ -19,6 +23,9 @@ export default {
         },
         getPosts(state, payload) {
             return (state.posts = payload);
+        },
+        getBlogPosts(state, payload) {
+            return (state.blogPosts = payload);
         }
     },
     actions: {
@@ -32,6 +39,12 @@ export default {
             axios.get("/api/post").then(response => {
                 // console.log(response);
                 context.commit("getPosts", response.data.posts);
+            });
+        },
+        getBlogPosts(context) {
+            axios.get("/public/blog").then(response => {
+                // console.log(response);
+                context.commit("getBlogPosts", response.data.posts);
             });
         }
     }

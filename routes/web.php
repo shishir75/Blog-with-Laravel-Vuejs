@@ -17,3 +17,8 @@ Route::group( ['middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.',
     Route::resource( 'category', 'CategoryController' );
     Route::resource( 'post', 'PostController' );
 } );
+
+// Frontend Route
+Route::group( ['prefix' => 'public'], function () {
+    Route::resource( 'blog', 'BlogController' );
+} );
