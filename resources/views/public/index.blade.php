@@ -176,10 +176,10 @@
                         <nav>
                           <ul class="nav topnav">
                             <li>
-                              <a href="contact.html">Home </a>
+                              <router-link to="/">Home </router-link>
                             </li>
                             <li>
-                                <a href="contact.html">Blog </a>
+                                <router-link to="/blog">Blog </router-link>
                               </li>
                           </ul>
                         </nav>

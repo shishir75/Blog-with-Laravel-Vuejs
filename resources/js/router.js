@@ -27,7 +27,8 @@ const router = new VueRouter({
         { path: "/create-post", component: NewPost },
         { path: "/edit-post/:id", component: EditPost },
 
-        { path: "/", component: PublicHome } // Frontend Route
+        { path: "/", component: PublicHome }, // Frontend Route
+        { path: "/blog", component: BlogPostsComponent }
     ]
 });
 
