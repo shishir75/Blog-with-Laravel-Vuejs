@@ -21,4 +21,6 @@ Route::group( ['middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.',
 // Frontend Route
 Route::group( ['prefix' => 'public'], function () {
     Route::resource( 'blog', 'BlogController' );
+    Route::get( 'latestPosts', 'BlogController@latestPosts' );
+    Route::get( 'category', 'CategoryController@index' );
 } );

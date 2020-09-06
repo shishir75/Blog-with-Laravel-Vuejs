@@ -21,6 +21,15 @@ class BlogController extends Controller
         ], 200 );
     }
 
+    public function latestPosts()
+    {
+        $posts = Post::latest()->take( 5 )->get();
+
+        return response()->json( [
+            'posts' => $posts,
+        ], 200 );
+    }
+
     /**
      * Show the form for creating a new resource.
      *
