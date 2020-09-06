@@ -14,8 +14,9 @@
                                             </h3>
                                         </div>
                                         <img
+                                            v-if="post.photo"
                                             :src="postPhoto(post.photo)"
-                                            alt=""
+                                            :alt="post.title"
                                         />
                                     </div>
                                     <p>
@@ -24,13 +25,13 @@
 
                                     <div class="bottom-article">
                                         <ul class="meta-post">
-                                            <li>
+                                            <li v-if="post.user">
                                                 <i class="icon-user"></i
                                                 ><a href="#">
                                                     {{ post.user.name }}</a
                                                 >
                                             </li>
-                                            <li>
+                                            <li v-if="post.category">
                                                 <i class="icon-folder-open"></i
                                                 ><a href="#">
                                                     {{ post.category.name }}</a
@@ -38,7 +39,9 @@
                                             </li>
                                             <li>
                                                 <i class="icon-tags"></i
-                                                ><a href="#">Web design</a>
+                                                ><a href="#">{{
+                                                    post.created_at | dateFormat
+                                                }}</a>
                                             </li>
                                         </ul>
                                     </div>

@@ -56,7 +56,7 @@ export default {
         },
         getSinglePost(context, id) {
             axios.get("/public/blog/" + id).then(response => {
-                console.log(response.data.post);
+                // console.log(response.data.post);
                 context.commit("getSinglePost", response.data.post);
             });
         }

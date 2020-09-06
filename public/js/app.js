@@ -3938,6 +3938,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -89334,9 +89337,14 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _c("img", {
-                        attrs: { src: _vm.postPhoto(_vm.post.photo), alt: "" }
-                      })
+                      _vm.post.photo
+                        ? _c("img", {
+                            attrs: {
+                              src: _vm.postPhoto(_vm.post.photo),
+                              alt: _vm.post.title
+                            }
+                          })
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _c("p", [
@@ -89349,36 +89357,47 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "bottom-article" }, [
                       _c("ul", { staticClass: "meta-post" }, [
-                        _c("li", [
-                          _c("i", { staticClass: "icon-user" }),
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v(
-                              "\n                                                " +
-                                _vm._s(_vm.post.user.name)
-                            )
-                          ])
-                        ]),
+                        _vm.post.user
+                          ? _c("li", [
+                              _c("i", { staticClass: "icon-user" }),
+                              _c("a", { attrs: { href: "#" } }, [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(_vm.post.user.name)
+                                )
+                              ])
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.post.category
+                          ? _c("li", [
+                              _c("i", { staticClass: "icon-folder-open" }),
+                              _c("a", { attrs: { href: "#" } }, [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(_vm.post.category.name)
+                                )
+                              ])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
                         _c("li", [
-                          _c("i", { staticClass: "icon-folder-open" }),
+                          _c("i", { staticClass: "icon-tags" }),
                           _c("a", { attrs: { href: "#" } }, [
                             _vm._v(
-                              "\n                                                " +
-                                _vm._s(_vm.post.category.name)
+                              _vm._s(_vm._f("dateFormat")(_vm.post.created_at))
                             )
                           ])
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(0)
+                        ])
                       ])
                     ])
                   ])
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(1)
             ]),
             _vm._v(" "),
             _c("BlogSidebar")
@@ -89390,15 +89409,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("i", { staticClass: "icon-tags" }),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Web design")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -107298,7 +107308,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getSinglePost: function getSinglePost(context, id) {
       axios.get("/public/blog/" + id).then(function (response) {
-        console.log(response.data.post);
+        // console.log(response.data.post);
         context.commit("getSinglePost", response.data.post);
       });
     }
