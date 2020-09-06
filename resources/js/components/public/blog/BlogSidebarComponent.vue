@@ -20,7 +20,7 @@
                         <li v-for="category in categories" :key="category.id">
                             <i class="icon-angle-right"></i
                             ><a v-if="category" href="#">{{ category.name }}</a
-                            ><span> (20)</span>
+                            ><span> ({{ category.posts.length }})</span>
                         </li>
                     </ul>
                 </div>

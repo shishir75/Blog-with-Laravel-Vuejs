@@ -89113,7 +89113,7 @@ var render = function() {
                       _vm._v(_vm._s(category.name))
                     ])
                   : _vm._e(),
-                _c("span", [_vm._v(" (20)")])
+                _c("span", [_vm._v(" (" + _vm._s(category.posts.length) + ")")])
               ])
             }),
             0
