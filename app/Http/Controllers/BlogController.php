@@ -48,9 +48,13 @@ class BlogController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show( Post $post )
+    public function show( $id )
     {
-        //
+        $post = Post::with( 'user', 'category' )->where( 'id', $id )->first();
+
+        return response()->json( [
+            'post' => $post,
+        ], 200 );
     }
 
     /**

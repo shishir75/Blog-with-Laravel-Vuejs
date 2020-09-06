@@ -34,7 +34,12 @@
                                     <div class="post-image">
                                         <div class="post-heading">
                                             <h3>
-                                                <a href="#">{{ post.title }}</a>
+                                                <router-link
+                                                    :to="`/blog/${post.id}`"
+                                                    >{{
+                                                        post.title
+                                                    }}</router-link
+                                                >
                                             </h3>
                                         </div>
                                         <img
@@ -75,10 +80,12 @@
                                                 ><a href="#">4 Comments</a>
                                             </li>
                                         </ul>
-                                        <a href="#" class="pull-right"
+                                        <router-link
+                                            :to="`/blog/${post.id}`"
+                                            class="pull-right"
                                             >Continue reading
                                             <i class="icon-angle-right"></i
-                                        ></a>
+                                        ></router-link>
                                     </div>
                                 </div>
                             </div>

@@ -56,7 +56,7 @@ class PostController extends Controller
 
         $image_name = time() . "." . $extention;
 
-        $img = Image::make( $request->photo )->resize( 200, 200 );
+        $img = Image::make( $request->photo )->resize( 800, 350 );
         $path = public_path() . "/upload/";
         $img->save( $path . $image_name );
 
@@ -121,7 +121,7 @@ class PostController extends Controller
 
             $image_name = time() . "." . $extention;
 
-            $img = Image::make( $request->photo )->resize( 200, 200 );
+            $img = Image::make( $request->photo )->resize( 800, 350 );
             $img->save( $path . $image_name );
 
         } else {

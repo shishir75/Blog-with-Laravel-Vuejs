@@ -4,7 +4,8 @@ export default {
     state: {
         categories: [],
         posts: [],
-        blogPosts: []
+        blogPosts: [],
+        post: []
     },
     getters: {
         getCategory(state) {
@@ -15,6 +16,9 @@ export default {
         },
         getBlogPosts(state) {
             return state.blogPosts;
+        },
+        getSinglePost(state) {
+            return state.post;
         }
     },
     mutations: {
@@ -26,6 +30,9 @@ export default {
         },
         getBlogPosts(state, payload) {
             return (state.blogPosts = payload);
+        },
+        getSinglePost(state, payload) {
+            return (state.post = payload);
         }
     },
     actions: {
@@ -45,6 +52,12 @@ export default {
             axios.get("/public/blog").then(response => {
                 // console.log(response);
                 context.commit("getBlogPosts", response.data.posts);
+            });
+        },
+        getSinglePost(context, id) {
+            axios.get("/public/blog/" + id).then(response => {
+                console.log(response.data.post);
+                context.commit("getSinglePost", response.data.post);
             });
         }
     }
