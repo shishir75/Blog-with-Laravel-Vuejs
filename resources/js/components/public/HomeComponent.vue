@@ -7,19 +7,19 @@
                 <div class="nivo-slider">
                     <!-- Slide #1 image -->
                     <img
-                        src="assets/public/img/slides/nivo/bg-1.jpg"
+                        src="/../assets/public/img/slides/nivo/bg-1.jpg"
                         alt=""
                         title="#caption-1"
                     />
                     <!-- Slide #2 image -->
                     <img
-                        src="assets/public/img/slides/nivo/bg-2.jpg"
+                        src="/../assets/public/img/slides/nivo/bg-2.jpg"
                         alt=""
                         title="#caption-2"
                     />
                     <!-- Slide #3 image -->
                     <img
-                        src="assets/public/img/slides/nivo/bg-3.jpg"
+                        src="/../assets/public/img/slides/nivo/bg-3.jpg"
                         alt=""
                         title="#caption-3"
                     />
@@ -214,7 +214,7 @@
                                             class="hover-wrap fancybox"
                                             data-fancybox-group="gallery"
                                             title="The City"
-                                            href="assets/public/img/works/full/image-01-full.jpg"
+                                            href="/../assets/public/img/works/full/image-01-full.jpg"
                                         >
                                             <span class="overlay-img"></span>
                                             <span
@@ -223,7 +223,7 @@
                                         </a>
                                         <!-- Thumb Image and Description -->
                                         <img
-                                            src="assets/public/img/works/thumbs/image-01.jpg"
+                                            src="/../assets/public/img/works/thumbs/image-01.jpg"
                                             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                                         />
                                     </li>
@@ -239,7 +239,7 @@
                                             class="hover-wrap fancybox"
                                             data-fancybox-group="gallery"
                                             title="The Office"
-                                            href="assets/public/img/works/full/image-02-full.jpg"
+                                            href="/../assets/public/img/works/full/image-02-full.jpg"
                                         >
                                             <span class="overlay-img"></span>
                                             <span
@@ -248,7 +248,7 @@
                                         </a>
                                         <!-- Thumb Image and Description -->
                                         <img
-                                            src="assets/public/img/works/thumbs/image-02.jpg"
+                                            src="/../assets/public/img/works/thumbs/image-02.jpg"
                                             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                                         />
                                     </li>
@@ -264,7 +264,7 @@
                                             class="hover-wrap fancybox"
                                             data-fancybox-group="gallery"
                                             title="The Mountains"
-                                            href="assets/public/img/works/full/image-03-full.jpg"
+                                            href="/../assets/public/img/works/full/image-03-full.jpg"
                                         >
                                             <span class="overlay-img"></span>
                                             <span
@@ -273,7 +273,7 @@
                                         </a>
                                         <!-- Thumb Image and Description -->
                                         <img
-                                            src="assets/public/img/works/thumbs/image-03.jpg"
+                                            src="/../assets/public/img/works/thumbs/image-03.jpg"
                                             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                                         />
                                     </li>
@@ -289,7 +289,7 @@
                                             class="hover-wrap fancybox"
                                             data-fancybox-group="gallery"
                                             title="The Mountains"
-                                            href="assets/public/img/works/full/image-04-full.jpg"
+                                            href="/../assets/public/img/works/full/image-04-full.jpg"
                                         >
                                             <span class="overlay-img"></span>
                                             <span
@@ -298,7 +298,7 @@
                                         </a>
                                         <!-- Thumb Image and Description -->
                                         <img
-                                            src="assets/public/img/works/thumbs/image-04.jpg"
+                                            src="/../assets/public/img/works/thumbs/image-04.jpg"
                                             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                                         />
                                     </li>
@@ -314,7 +314,7 @@
                                             class="hover-wrap fancybox"
                                             data-fancybox-group="gallery"
                                             title="The Sea"
-                                            href="assets/public/img/works/full/image-05-full.jpg"
+                                            href="/../assets/public/img/works/full/image-05-full.jpg"
                                         >
                                             <span class="overlay-img"></span>
                                             <span
@@ -323,7 +323,7 @@
                                         </a>
                                         <!-- Thumb Image and Description -->
                                         <img
-                                            src="assets/public/img/works/thumbs/image-05.jpg"
+                                            src="/../assets/public/img/works/thumbs/image-05.jpg"
                                             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                                         />
                                     </li>
@@ -339,7 +339,7 @@
                                             class="hover-wrap fancybox"
                                             data-fancybox-group="gallery"
                                             title="Clouds"
-                                            href="assets/public/img/works/full/image-06-full.jpg"
+                                            href="/../assets/public/img/works/full/image-06-full.jpg"
                                         >
                                             <span class="overlay-img"></span>
                                             <span
@@ -348,7 +348,7 @@
                                         </a>
                                         <!-- Thumb Image and Description -->
                                         <img
-                                            src="assets/public/img/works/thumbs/image-06.jpg"
+                                            src="/../assets/public/img/works/thumbs/image-06.jpg"
                                             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                                         />
                                     </li>
@@ -364,7 +364,7 @@
                                             class="hover-wrap fancybox"
                                             data-fancybox-group="gallery"
                                             title="The Mountains"
-                                            href="assets/public/img/works/full/image-07-full.jpg"
+                                            href="/../assets/public/img/works/full/image-07-full.jpg"
                                         >
                                             <span class="overlay-img"></span>
                                             <span
@@ -373,7 +373,7 @@
                                         </a>
                                         <!-- Thumb Image and Description -->
                                         <img
-                                            src="assets/public/img/works/thumbs/image-07.jpg"
+                                            src="/../assets/public/img/works/thumbs/image-07.jpg"
                                             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                                         />
                                     </li>
@@ -389,7 +389,7 @@
                                             class="hover-wrap fancybox"
                                             data-fancybox-group="gallery"
                                             title="The Dark"
-                                            href="assets/public/img/works/full/image-08-full.jpg"
+                                            href="/../assets/public/img/works/full/image-08-full.jpg"
                                         >
                                             <span class="overlay-img"></span>
                                             <span
@@ -398,7 +398,7 @@
                                         </a>
                                         <!-- Thumb Image and Description -->
                                         <img
-                                            src="assets/public/img/works/thumbs/image-08.jpg"
+                                            src="/../assets/public/img/works/thumbs/image-08.jpg"
                                             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                                         />
                                     </li>
@@ -426,7 +426,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client1.png"
+                                        src="/../assets/public/img/dummies/clients/client1.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -435,7 +435,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client2.png"
+                                        src="/../assets/public/img/dummies/clients/client2.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -444,7 +444,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client3.png"
+                                        src="/../assets/public/img/dummies/clients/client3.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -453,7 +453,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client4.png"
+                                        src="/../assets/public/img/dummies/clients/client4.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -462,7 +462,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client5.png"
+                                        src="/../assets/public/img/dummies/clients/client5.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -471,7 +471,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client6.png"
+                                        src="/../assets/public/img/dummies/clients/client6.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -480,7 +480,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client1.png"
+                                        src="/../assets/public/img/dummies/clients/client1.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -489,7 +489,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client2.png"
+                                        src="/../assets/public/img/dummies/clients/client2.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -498,7 +498,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client3.png"
+                                        src="/../assets/public/img/dummies/clients/client3.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -507,7 +507,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client4.png"
+                                        src="/../assets/public/img/dummies/clients/client4.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -516,7 +516,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client5.png"
+                                        src="/../assets/public/img/dummies/clients/client5.png"
                                         class="client-logo"
                                         alt=""
                                     />
@@ -525,7 +525,7 @@
                             <li>
                                 <a href="#">
                                     <img
-                                        src="assets/public/img/dummies/clients/client6.png"
+                                        src="/../assets/public/img/dummies/clients/client6.png"
                                         class="client-logo"
                                         alt=""
                                     />

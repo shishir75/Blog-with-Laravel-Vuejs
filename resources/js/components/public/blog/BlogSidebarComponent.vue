@@ -44,7 +44,7 @@
                     <ul class="recent">
                         <li>
                             <img
-                                src="assets/public/img/dummies/blog/65x65/thumb1.jpg"
+                                src="/../assets/public/img/dummies/blog/65x65/thumb1.jpg"
                                 class="pull-left"
                                 alt=""
                             />
@@ -59,7 +59,7 @@
                         <li>
                             <a href="#"
                                 ><img
-                                    src="assets/public/img/dummies/blog/65x65/thumb2.jpg"
+                                    src="/../assets/public/img/dummies/blog/65x65/thumb2.jpg"
                                     class="pull-left"
                                     alt=""
                             /></a>
@@ -74,7 +74,7 @@
                         <li>
                             <a href="#"
                                 ><img
-                                    src="assets/public/img/dummies/blog/65x65/thumb3.jpg"
+                                    src="/../assets/public/img/dummies/blog/65x65/thumb3.jpg"
                                     class="pull-left"
                                     alt=""
                             /></a>

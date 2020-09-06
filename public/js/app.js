@@ -88085,7 +88085,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "nivo-slider" }, [
             _c("img", {
               attrs: {
-                src: "assets/public/img/slides/nivo/bg-1.jpg",
+                src: "/../assets/public/img/slides/nivo/bg-1.jpg",
                 alt: "",
                 title: "#caption-1"
               }
@@ -88093,7 +88093,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("img", {
               attrs: {
-                src: "assets/public/img/slides/nivo/bg-2.jpg",
+                src: "/../assets/public/img/slides/nivo/bg-2.jpg",
                 alt: "",
                 title: "#caption-2"
               }
@@ -88101,7 +88101,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("img", {
               attrs: {
-                src: "assets/public/img/slides/nivo/bg-3.jpg",
+                src: "/../assets/public/img/slides/nivo/bg-3.jpg",
                 alt: "",
                 title: "#caption-3"
               }
@@ -88357,7 +88357,7 @@ var staticRenderFns = [
                                 "data-fancybox-group": "gallery",
                                 title: "The City",
                                 href:
-                                  "assets/public/img/works/full/image-01-full.jpg"
+                                  "/../assets/public/img/works/full/image-01-full.jpg"
                               }
                             },
                             [
@@ -88372,7 +88372,7 @@ var staticRenderFns = [
                           _c("img", {
                             attrs: {
                               src:
-                                "assets/public/img/works/thumbs/image-01.jpg",
+                                "/../assets/public/img/works/thumbs/image-01.jpg",
                               alt:
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                             }
@@ -88395,7 +88395,7 @@ var staticRenderFns = [
                                 "data-fancybox-group": "gallery",
                                 title: "The Office",
                                 href:
-                                  "assets/public/img/works/full/image-02-full.jpg"
+                                  "/../assets/public/img/works/full/image-02-full.jpg"
                               }
                             },
                             [
@@ -88410,7 +88410,7 @@ var staticRenderFns = [
                           _c("img", {
                             attrs: {
                               src:
-                                "assets/public/img/works/thumbs/image-02.jpg",
+                                "/../assets/public/img/works/thumbs/image-02.jpg",
                               alt:
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                             }
@@ -88436,7 +88436,7 @@ var staticRenderFns = [
                                 "data-fancybox-group": "gallery",
                                 title: "The Mountains",
                                 href:
-                                  "assets/public/img/works/full/image-03-full.jpg"
+                                  "/../assets/public/img/works/full/image-03-full.jpg"
                               }
                             },
                             [
@@ -88451,7 +88451,7 @@ var staticRenderFns = [
                           _c("img", {
                             attrs: {
                               src:
-                                "assets/public/img/works/thumbs/image-03.jpg",
+                                "/../assets/public/img/works/thumbs/image-03.jpg",
                               alt:
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                             }
@@ -88477,7 +88477,7 @@ var staticRenderFns = [
                                 "data-fancybox-group": "gallery",
                                 title: "The Mountains",
                                 href:
-                                  "assets/public/img/works/full/image-04-full.jpg"
+                                  "/../assets/public/img/works/full/image-04-full.jpg"
                               }
                             },
                             [
@@ -88492,7 +88492,7 @@ var staticRenderFns = [
                           _c("img", {
                             attrs: {
                               src:
-                                "assets/public/img/works/thumbs/image-04.jpg",
+                                "/../assets/public/img/works/thumbs/image-04.jpg",
                               alt:
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                             }
@@ -88515,7 +88515,7 @@ var staticRenderFns = [
                                 "data-fancybox-group": "gallery",
                                 title: "The Sea",
                                 href:
-                                  "assets/public/img/works/full/image-05-full.jpg"
+                                  "/../assets/public/img/works/full/image-05-full.jpg"
                               }
                             },
                             [
@@ -88530,7 +88530,7 @@ var staticRenderFns = [
                           _c("img", {
                             attrs: {
                               src:
-                                "assets/public/img/works/thumbs/image-05.jpg",
+                                "/../assets/public/img/works/thumbs/image-05.jpg",
                               alt:
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                             }
@@ -88553,7 +88553,7 @@ var staticRenderFns = [
                                 "data-fancybox-group": "gallery",
                                 title: "Clouds",
                                 href:
-                                  "assets/public/img/works/full/image-06-full.jpg"
+                                  "/../assets/public/img/works/full/image-06-full.jpg"
                               }
                             },
                             [
@@ -88568,7 +88568,7 @@ var staticRenderFns = [
                           _c("img", {
                             attrs: {
                               src:
-                                "assets/public/img/works/thumbs/image-06.jpg",
+                                "/../assets/public/img/works/thumbs/image-06.jpg",
                               alt:
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                             }
@@ -88594,7 +88594,7 @@ var staticRenderFns = [
                                 "data-fancybox-group": "gallery",
                                 title: "The Mountains",
                                 href:
-                                  "assets/public/img/works/full/image-07-full.jpg"
+                                  "/../assets/public/img/works/full/image-07-full.jpg"
                               }
                             },
                             [
@@ -88609,7 +88609,7 @@ var staticRenderFns = [
                           _c("img", {
                             attrs: {
                               src:
-                                "assets/public/img/works/thumbs/image-07.jpg",
+                                "/../assets/public/img/works/thumbs/image-07.jpg",
                               alt:
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                             }
@@ -88632,7 +88632,7 @@ var staticRenderFns = [
                                 "data-fancybox-group": "gallery",
                                 title: "The Dark",
                                 href:
-                                  "assets/public/img/works/full/image-08-full.jpg"
+                                  "/../assets/public/img/works/full/image-08-full.jpg"
                               }
                             },
                             [
@@ -88647,7 +88647,7 @@ var staticRenderFns = [
                           _c("img", {
                             attrs: {
                               src:
-                                "assets/public/img/works/thumbs/image-08.jpg",
+                                "/../assets/public/img/works/thumbs/image-08.jpg",
                               alt:
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
                             }
@@ -88686,7 +88686,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client1.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client1.png",
                           alt: ""
                         }
                       })
@@ -88698,7 +88699,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client2.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client2.png",
                           alt: ""
                         }
                       })
@@ -88710,7 +88712,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client3.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client3.png",
                           alt: ""
                         }
                       })
@@ -88722,7 +88725,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client4.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client4.png",
                           alt: ""
                         }
                       })
@@ -88734,7 +88738,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client5.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client5.png",
                           alt: ""
                         }
                       })
@@ -88746,7 +88751,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client6.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client6.png",
                           alt: ""
                         }
                       })
@@ -88758,7 +88764,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client1.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client1.png",
                           alt: ""
                         }
                       })
@@ -88770,7 +88777,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client2.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client2.png",
                           alt: ""
                         }
                       })
@@ -88782,7 +88790,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client3.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client3.png",
                           alt: ""
                         }
                       })
@@ -88794,7 +88803,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client4.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client4.png",
                           alt: ""
                         }
                       })
@@ -88806,7 +88816,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client5.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client5.png",
                           alt: ""
                         }
                       })
@@ -88818,7 +88829,8 @@ var staticRenderFns = [
                       _c("img", {
                         staticClass: "client-logo",
                         attrs: {
-                          src: "assets/public/img/dummies/clients/client6.png",
+                          src:
+                            "/../assets/public/img/dummies/clients/client6.png",
                           alt: ""
                         }
                       })
@@ -89175,7 +89187,7 @@ var staticRenderFns = [
                 _c("img", {
                   staticClass: "pull-left",
                   attrs: {
-                    src: "assets/public/img/dummies/blog/65x65/thumb1.jpg",
+                    src: "/../assets/public/img/dummies/blog/65x65/thumb1.jpg",
                     alt: ""
                   }
                 }),
@@ -89198,7 +89210,8 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "pull-left",
                     attrs: {
-                      src: "assets/public/img/dummies/blog/65x65/thumb2.jpg",
+                      src:
+                        "/../assets/public/img/dummies/blog/65x65/thumb2.jpg",
                       alt: ""
                     }
                   })
@@ -89222,7 +89235,8 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "pull-left",
                     attrs: {
-                      src: "assets/public/img/dummies/blog/65x65/thumb3.jpg",
+                      src:
+                        "/../assets/public/img/dummies/blog/65x65/thumb3.jpg",
                       alt: ""
                     }
                   })
