@@ -3647,6 +3647,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -3654,15 +3658,15 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   mounted: function mounted() {
     this.$store.dispatch("sidebarCategories");
-    this.$store.dispatch("latestPosts");
+    this.$store.dispatch("getBlogPosts");
   },
   created: function created() {},
   computed: {
     categories: function categories() {
       return this.$store.getters.sidebarCategories;
     },
-    latestPosts: function latestPosts() {
-      return this.$store.getters.latestPosts;
+    getBlogPosts: function getBlogPosts() {
+      return this.$store.getters.getBlogPosts;
     }
   },
   methods: {}
@@ -89122,28 +89126,40 @@ var render = function() {
           _c(
             "ul",
             { staticClass: "recent" },
-            _vm._l(_vm.latestPosts, function(post) {
-              return _c("li", { key: post.id }, [
-                _c("img", {
-                  staticClass: "pull-left",
-                  staticStyle: { width: "65px", height: "65px" },
-                  attrs: { src: "/upload/" + post.photo, alt: post.title }
-                }),
-                _vm._v(" "),
-                _c("h6", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _vm._v(_vm._s(_vm._f("shortLength")(post.title, 30)))
+            _vm._l(_vm.getBlogPosts, function(post, index) {
+              return index < 3
+                ? _c("li", { key: post.id }, [
+                    _c("img", {
+                      staticClass: "pull-left",
+                      staticStyle: { width: "65px", height: "65px" },
+                      attrs: { src: "/upload/" + post.photo, alt: post.title }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "h6",
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: "/blog/" + post.id } },
+                          [
+                            _vm._v(
+                              _vm._s(_vm._f("shortLength")(post.title, 30))
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm._f("shortLength")(post.description, 70)) +
+                          "\n                        "
+                      )
+                    ])
                   ])
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(_vm._f("shortLength")(post.description, 70)) +
-                      "\n                        "
-                  )
-                ])
-              ])
+                : _vm._e()
             }),
             0
           )
@@ -89306,9 +89322,11 @@ var render = function() {
                 _vm._v(" "),
                 _c("h5", [
                   _c("strong", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v(_vm._s(_vm.post.user.name))
-                    ])
+                    _vm.post.user
+                      ? _c("a", { attrs: { href: "#" } }, [
+                          _vm._v(_vm._s(_vm.post.user.name))
+                        ])
+                      : _vm._e()
                   ])
                 ]),
                 _vm._v(" "),
@@ -107172,8 +107190,7 @@ __webpack_require__.r(__webpack_exports__);
     posts: [],
     blogPosts: [],
     post: [],
-    sidebarCategories: [],
-    latestPosts: []
+    sidebarCategories: []
   },
   getters: {
     getCategory: function getCategory(state) {
@@ -107190,9 +107207,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     sidebarCategories: function sidebarCategories(state) {
       return state.sidebarCategories;
-    },
-    latestPosts: function latestPosts(state) {
-      return state.latestPosts;
     }
   },
   mutations: {
@@ -107210,9 +107224,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     sidebarCategories: function sidebarCategories(state, payload) {
       return state.sidebarCategories = payload;
-    },
-    latestPosts: function latestPosts(state, payload) {
-      return state.latestPosts = payload;
     }
   },
   actions: {
@@ -107243,11 +107254,6 @@ __webpack_require__.r(__webpack_exports__);
     sidebarCategories: function sidebarCategories(context) {
       axios.get("/public/category").then(function (response) {
         context.commit("sidebarCategories", response.data.categories);
-      });
-    },
-    latestPosts: function latestPosts(contex) {
-      axios.get("public/latestPosts").then(function (response) {
-        contex.commit("latestPosts", response.data.posts);
       });
     }
   }

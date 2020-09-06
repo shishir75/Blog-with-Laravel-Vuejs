@@ -6,8 +6,7 @@ export default {
         posts: [],
         blogPosts: [],
         post: [],
-        sidebarCategories: [],
-        latestPosts: []
+        sidebarCategories: []
     },
     getters: {
         getCategory(state) {
@@ -24,9 +23,6 @@ export default {
         },
         sidebarCategories(state) {
             return state.sidebarCategories;
-        },
-        latestPosts(state) {
-            return state.latestPosts;
         }
     },
     mutations: {
@@ -44,9 +40,6 @@ export default {
         },
         sidebarCategories(state, payload) {
             return (state.sidebarCategories = payload);
-        },
-        latestPosts(state, payload) {
-            return (state.latestPosts = payload);
         }
     },
     actions: {
@@ -77,11 +70,6 @@ export default {
         sidebarCategories(context) {
             axios.get("/public/category").then(response => {
                 context.commit("sidebarCategories", response.data.categories);
-            });
-        },
-        latestPosts(contex) {
-            axios.get("public/latestPosts").then(response => {
-                contex.commit("latestPosts", response.data.posts);
             });
         }
     }

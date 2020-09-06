@@ -57,7 +57,7 @@
                             /></a>
                             <h5>
                                 <strong
-                                    ><a href="#">{{
+                                    ><a href="#" v-if="post.user">{{
                                         post.user.name
                                     }}</a></strong
                                 >

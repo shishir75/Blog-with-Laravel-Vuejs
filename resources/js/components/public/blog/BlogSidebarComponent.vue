@@ -27,7 +27,11 @@
                 <div class="widget">
                     <h5 class="widgetheading">Latest posts</h5>
                     <ul class="recent">
-                        <li v-for="post in latestPosts" :key="post.id">
+                        <li
+                            v-for="(post, index) in getBlogPosts"
+                            :key="post.id"
+                            v-if="index < 3"
+                        >
                             <img
                                 :src="`/upload/${post.photo}`"
                                 class="pull-left"
@@ -35,9 +39,9 @@
                                 style="width: 65px; height:65px"
                             />
                             <h6>
-                                <a href="#">{{
+                                <router-link :to="`/blog/${post.id}`">{{
                                     post.title | shortLength(30)
-                                }}</a>
+                                }}</router-link>
                             </h6>
                             <p>
                                 {{ post.description | shortLength(70) }}
@@ -69,15 +73,15 @@ export default {
     components: {},
     mounted() {
         this.$store.dispatch("sidebarCategories");
-        this.$store.dispatch("latestPosts");
+        this.$store.dispatch("getBlogPosts");
     },
     created() {},
     computed: {
         categories() {
             return this.$store.getters.sidebarCategories;
         },
-        latestPosts() {
-            return this.$store.getters.latestPosts;
+        getBlogPosts() {
+            return this.$store.getters.getBlogPosts;
         }
     },
     methods: {}
