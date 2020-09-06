@@ -3646,6 +3646,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -3679,6 +3680,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BlogSidebarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BlogSidebarComponent */ "./resources/js/components/public/blog/BlogSidebarComponent.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -89121,10 +89126,8 @@ var render = function() {
               return _c("li", { key: post.id }, [
                 _c("img", {
                   staticClass: "pull-left",
-                  attrs: {
-                    src: "/../assets/public/img/dummies/blog/65x65/thumb1.jpg",
-                    alt: post.title
-                  }
+                  staticStyle: { width: "65px", height: "65px" },
+                  attrs: { src: "/upload/" + post.photo, alt: post.title }
                 }),
                 _vm._v(" "),
                 _c("h6", [
@@ -89298,7 +89301,23 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(0),
+              _c("div", { staticClass: "about-author" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("h5", [
+                  _c("strong", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(_vm.post.user.name))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                            Qui ut ceteros comprehensam. Cu eos sale sanctus\n                            eligendi, id ius elitr saperet, ocurreret\n                            pertinacia pri an. No mei nibh consectetuer,\n                            semper ad qui, est rebum nulla argumentum ei.\n                        "
+                  )
+                ])
+              ]),
               _vm._v(" "),
               _vm._m(1)
             ]),
@@ -89316,23 +89335,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "about-author" }, [
-      _c("a", { staticClass: "thumbnail align-left", attrs: { href: "#" } }, [
+    return _c(
+      "a",
+      { staticClass: "thumbnail align-left", attrs: { href: "#" } },
+      [
         _c("img", {
           attrs: { src: "/../assets/public/img/avatar.png", alt: "" }
         })
-      ]),
-      _vm._v(" "),
-      _c("h5", [
-        _c("strong", [_c("a", { attrs: { href: "#" } }, [_vm._v("John doe")])])
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "\n                            Qui ut ceteros comprehensam. Cu eos sale sanctus\n                            eligendi, id ius elitr saperet, ocurreret\n                            pertinacia pri an. No mei nibh consectetuer,\n                            semper ad qui, est rebum nulla argumentum ei.\n                        "
-        )
-      ])
-    ])
+      ]
+    )
   },
   function() {
     var _vm = this

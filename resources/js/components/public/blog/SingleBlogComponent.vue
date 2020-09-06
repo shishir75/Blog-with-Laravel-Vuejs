@@ -56,7 +56,11 @@
                                     alt=""
                             /></a>
                             <h5>
-                                <strong><a href="#">John doe</a></strong>
+                                <strong
+                                    ><a href="#">{{
+                                        post.user.name
+                                    }}</a></strong
+                                >
                             </h5>
                             <p>
                                 Qui ut ceteros comprehensam. Cu eos sale sanctus

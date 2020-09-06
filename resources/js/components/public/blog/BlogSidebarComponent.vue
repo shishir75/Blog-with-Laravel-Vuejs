@@ -29,9 +29,10 @@
                     <ul class="recent">
                         <li v-for="post in latestPosts" :key="post.id">
                             <img
-                                src="/../assets/public/img/dummies/blog/65x65/thumb1.jpg"
+                                :src="`/upload/${post.photo}`"
                                 class="pull-left"
                                 :alt="post.title"
+                                style="width: 65px; height:65px"
                             />
                             <h6>
                                 <a href="#">{{
