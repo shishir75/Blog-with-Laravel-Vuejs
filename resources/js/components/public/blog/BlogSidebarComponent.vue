@@ -30,22 +30,23 @@
                         <li
                             v-for="(post, index) in getBlogPosts"
                             :key="post.id"
-                            v-if="index < 3"
                         >
-                            <img
-                                :src="`/upload/${post.photo}`"
-                                class="pull-left"
-                                :alt="post.title"
-                                style="width: 65px; height:65px"
-                            />
-                            <h6>
-                                <router-link :to="`/blog/${post.id}`">{{
-                                    post.title | shortLength(30)
-                                }}</router-link>
-                            </h6>
-                            <p>
-                                {{ post.description | shortLength(70) }}
-                            </p>
+                            <span v-if="index < 4">
+                                <img
+                                    :src="`/upload/${post.photo}`"
+                                    class="pull-left"
+                                    :alt="post.title"
+                                    style="width: 65px; height:65px"
+                                />
+                                <h6>
+                                    <router-link :to="`/blog/${post.id}`">{{
+                                        post.title | shortLength(30)
+                                    }}</router-link>
+                                </h6>
+                                <p>
+                                    {{ post.description | shortLength(70) }}
+                                </p>
+                            </span>
                         </li>
                     </ul>
                 </div>

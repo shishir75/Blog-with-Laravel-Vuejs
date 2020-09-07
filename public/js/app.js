@@ -3651,6 +3651,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -89127,39 +89128,43 @@ var render = function() {
             "ul",
             { staticClass: "recent" },
             _vm._l(_vm.getBlogPosts, function(post, index) {
-              return index < 3
-                ? _c("li", { key: post.id }, [
-                    _c("img", {
-                      staticClass: "pull-left",
-                      staticStyle: { width: "65px", height: "65px" },
-                      attrs: { src: "/upload/" + post.photo, alt: post.title }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "h6",
-                      [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/blog/" + post.id } },
-                          [
-                            _vm._v(
-                              _vm._s(_vm._f("shortLength")(post.title, 30))
-                            )
-                          ]
+              return _c("li", { key: post.id }, [
+                index < 4
+                  ? _c("span", [
+                      _c("img", {
+                        staticClass: "pull-left",
+                        staticStyle: { width: "65px", height: "65px" },
+                        attrs: { src: "/upload/" + post.photo, alt: post.title }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "h6",
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: "/blog/" + post.id } },
+                            [
+                              _vm._v(
+                                _vm._s(_vm._f("shortLength")(post.title, 30))
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(
+                              _vm._f("shortLength")(post.description, 70)
+                            ) +
+                            "\n                            "
                         )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm._f("shortLength")(post.description, 70)) +
-                          "\n                        "
-                      )
+                      ])
                     ])
-                  ])
-                : _vm._e()
+                  : _vm._e()
+              ])
             }),
             0
           )
