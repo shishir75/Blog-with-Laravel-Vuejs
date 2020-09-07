@@ -40,6 +40,9 @@ export default {
         },
         sidebarCategories(state, payload) {
             return (state.sidebarCategories = payload);
+        },
+        getPostsByCategory(state, payload) {
+            return (state.blogPosts = payload);
         }
     },
     actions: {
@@ -70,6 +73,12 @@ export default {
         sidebarCategories(context) {
             axios.get("/public/category").then(response => {
                 context.commit("sidebarCategories", response.data.categories);
+            });
+        },
+        getPostsByCategory(context, id) {
+            axios.get("/public/category/" + id).then(response => {
+                console.log(response.data.posts);
+                context.commit("getPostsByCategory", response.data.posts);
             });
         }
     }

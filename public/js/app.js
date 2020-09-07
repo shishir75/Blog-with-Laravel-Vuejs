@@ -3549,6 +3549,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3569,6 +3573,18 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     postPhoto: function postPhoto(img) {
       return "/upload/" + img;
+    },
+    getCategoryPosts: function getCategoryPosts() {
+      if (this.$route.params.id != null) {
+        this.$store.dispatch("getPostsByCategory", this.$route.params.id);
+      } else {
+        this.$store.dispatch("getBlogPosts");
+      }
+    }
+  },
+  watch: {
+    $route: function $route(to, from) {
+      this.getCategoryPosts();
     }
   }
 });
@@ -3584,6 +3600,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -89031,7 +89052,11 @@ var staticRenderFns = [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "span4" }, [
             _c("div", { staticClass: "inner-heading" }, [
-              _c("h2", [_vm._v("Blog left sidebar")])
+              _c("h2", [
+                _vm._v(
+                  "\n                            Blog left sidebar\n                        "
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -89050,7 +89075,9 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "active" }, [
-                _vm._v("Blog with left sidebar")
+                _vm._v(
+                  "\n                            Blog with left sidebar\n                        "
+                )
               ])
             ])
           ])
@@ -89115,15 +89142,32 @@ var render = function() {
             "ul",
             { staticClass: "cat" },
             _vm._l(_vm.categories, function(category) {
-              return _c("li", { key: category.id }, [
-                _c("i", { staticClass: "icon-angle-right" }),
-                category
-                  ? _c("a", { attrs: { href: "#" } }, [
-                      _vm._v(_vm._s(category.name))
-                    ])
-                  : _vm._e(),
-                _c("span", [_vm._v(" (" + _vm._s(category.posts.length) + ")")])
-              ])
+              return _c(
+                "li",
+                { key: category.id },
+                [
+                  _c("i", { staticClass: "icon-angle-right" }),
+                  _vm._v(" "),
+                  category
+                    ? _c(
+                        "router-link",
+                        { attrs: { to: "/category/" + category.id } },
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(category.name) +
+                              "\n                        "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("span", [
+                    _vm._v(" (" + _vm._s(category.posts.length) + ")")
+                  ])
+                ],
+                1
+              )
             }),
             0
           )
@@ -107181,6 +107225,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/blog/:id",
     component: _components_public_blog_SingleBlogComponent_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }, {
+    path: "/category/:id",
+    component: _components_public_blog_BlogPostsComponent_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
@@ -107237,6 +107284,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     sidebarCategories: function sidebarCategories(state, payload) {
       return state.sidebarCategories = payload;
+    },
+    getPostsByCategory: function getPostsByCategory(state, payload) {
+      return state.blogPosts = payload;
     }
   },
   actions: {
@@ -107267,6 +107317,12 @@ __webpack_require__.r(__webpack_exports__);
     sidebarCategories: function sidebarCategories(context) {
       axios.get("/public/category").then(function (response) {
         context.commit("sidebarCategories", response.data.categories);
+      });
+    },
+    getPostsByCategory: function getPostsByCategory(context, id) {
+      axios.get("/public/category/" + id).then(function (response) {
+        console.log(response.data.posts);
+        context.commit("getPostsByCategory", response.data.posts);
       });
     }
   }

@@ -18,9 +18,14 @@
                     <h5 class="widgetheading">Categories</h5>
                     <ul class="cat">
                         <li v-for="category in categories" :key="category.id">
-                            <i class="icon-angle-right"></i
-                            ><a v-if="category" href="#">{{ category.name }}</a
-                            ><span> ({{ category.posts.length }})</span>
+                            <i class="icon-angle-right"></i>
+                            <router-link
+                                v-if="category"
+                                :to="`/category/${category.id}`"
+                            >
+                                {{ category.name }}
+                            </router-link>
+                            <span> ({{ category.posts.length }})</span>
                         </li>
                     </ul>
                 </div>

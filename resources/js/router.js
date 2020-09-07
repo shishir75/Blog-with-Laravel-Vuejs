@@ -28,7 +28,8 @@ const router = new VueRouter({
 
         { path: "/", component: PublicHome }, // Frontend Route
         { path: "/blog", component: BlogPostsComponent },
-        { path: "/blog/:id", component: SingleBlogComponent }
+        { path: "/blog/:id", component: SingleBlogComponent },
+        { path: "/category/:id", component: BlogPostsComponent }
     ]
 });
 

@@ -5,7 +5,9 @@
                 <div class="row">
                     <div class="span4">
                         <div class="inner-heading">
-                            <h2>Blog left sidebar</h2>
+                            <h2>
+                                Blog left sidebar
+                            </h2>
                         </div>
                     </div>
                     <div class="span8">
@@ -18,7 +20,9 @@
                                 <a href="#">Blog</a
                                 ><i class="icon-angle-right"></i>
                             </li>
-                            <li class="active">Blog with left sidebar</li>
+                            <li class="active">
+                                Blog with left sidebar
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -126,6 +130,21 @@ export default {
     methods: {
         postPhoto(img) {
             return "/upload/" + img;
+        },
+        getCategoryPosts() {
+            if (this.$route.params.id != null) {
+                this.$store.dispatch(
+                    "getPostsByCategory",
+                    this.$route.params.id
+                );
+            } else {
+                this.$store.dispatch("getBlogPosts");
+            }
+        }
+    },
+    watch: {
+        $route(to, from) {
+            this.getCategoryPosts();
         }
     }
 };

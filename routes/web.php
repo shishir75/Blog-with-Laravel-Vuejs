@@ -23,4 +23,5 @@ Route::group( ['prefix' => 'public'], function () {
     Route::get( 'blog', 'BlogController@index' );
     Route::get( 'blog/{id}', 'BlogController@show' );
     Route::get( 'category', 'CategoryController@index' );
+    Route::get( 'category/{id}', 'CategoryController@show' );
 } );
