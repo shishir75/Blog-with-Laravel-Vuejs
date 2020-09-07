@@ -21,6 +21,25 @@
                         >
                             <thead>
                                 <tr>
+                                    <th>
+                                        <select
+                                            name=""
+                                            id=""
+                                            @change="deleteSelected"
+                                            v-model="select"
+                                        >
+                                            <option value="" disabled selected
+                                                >Select</option
+                                            >
+                                            <option value="">Delete All</option>
+                                        </select>
+                                        <input
+                                            type="checkbox"
+                                            name=""
+                                            id=""
+                                            class="ml-3"
+                                        />Check All
+                                    </th>
                                     <th>Serial</th>
                                     <th>Category Name</th>
                                     <th>Date</th>
@@ -32,6 +51,13 @@
                                     v-for="(category, index) in allCategory"
                                     :key="category.id"
                                 >
+                                    <td>
+                                        <input
+                                            type="checkbox"
+                                            :value="category.id"
+                                            v-model="categoryItem"
+                                        />
+                                    </td>
                                     <td>{{ index + 1 }}</td>
                                     <td>{{ category.name }}</td>
                                     <td>
@@ -72,7 +98,10 @@
 import Swal from "sweetalert2";
 export default {
     data() {
-        return {};
+        return {
+            categoryItem: [],
+            select: ""
+        };
     },
     mounted() {
         this.$store.dispatch("getCategory");
@@ -97,6 +126,42 @@ export default {
                     axios
                         .delete("/api/category/" + id)
                         .then(response => {
+                            this.$store.dispatch("getCategory");
+                            Toast.fire({
+                                icon: "success",
+                                title: "Category Deleted Successfully"
+                            });
+                        })
+                        .catch(err => {
+                            Toast.fire({
+                                icon: "error",
+                                title: "Category Not Deleted"
+                            });
+                        });
+                } else {
+                    Toast.fire({
+                        icon: "info",
+                        title: "Category is Safe now!"
+                    });
+                }
+            });
+        },
+        deleteSelected() {
+            Swal.fire({
+                title: "Are you sure?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes"
+            }).then(result => {
+                if (result.value) {
+                    axios
+                        .delete(
+                            "/api/delete-selected-category/" + this.categoryItem
+                        )
+                        .then(response => {
+                            this.categoryItem = [];
                             this.$store.dispatch("getCategory");
                             Toast.fire({
                                 icon: "success",

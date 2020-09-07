@@ -15,6 +15,7 @@ Route::get( '/{anypath}', 'HomeController@index' )->where( 'path', '.*' ); // it
 
 Route::group( ['middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.', 'prefix' => 'api'], function () {
     Route::resource( 'category', 'CategoryController' );
+    Route::delete( 'delete-selected-category/{categoryItem}', 'CategoryController@deleteSelected' );
     Route::resource( 'post', 'PostController' );
 } );
 
