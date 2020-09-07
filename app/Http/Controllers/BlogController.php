@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -32,6 +33,16 @@ class BlogController extends Controller
 
         return response()->json( [
             'post' => $post,
+        ], 200 );
+    }
+
+    public function search( Request $request )
+    {
+        $keyword = $request->get( 's' );
+        $posts = Post::with( 'user', 'category' )->where( 'title', 'LIKE', "%$keyword%" )->orWhere( 'description', 'LIKE', "%$keyword%" )->latest()->get();
+
+        return response()->json( [
+            'posts' => $posts,
         ], 200 );
     }
 }

@@ -8,8 +8,14 @@
                             placeholder="Type something"
                             type="text"
                             class="input-medium search-query"
+                            v-model="keyword"
+                            @keyup="RealSearch"
                         />
-                        <button type="submit" class="btn btn-square btn-theme">
+                        <button
+                            type="submit"
+                            @click.prevent="RealSearch"
+                            class="btn btn-square btn-theme"
+                        >
                             Search
                         </button>
                     </form>
@@ -55,17 +61,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="widget">
-                    <h5 class="widgetheading">Popular tags</h5>
-                    <ul class="tags">
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Trends</a></li>
-                        <li><a href="#">Technology</a></li>
-                        <li><a href="#">Internet</a></li>
-                        <li><a href="#">Tutorial</a></li>
-                        <li><a href="#">Development</a></li>
-                    </ul>
-                </div>
             </aside>
         </div>
     </span>
@@ -74,7 +69,9 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            keyword: ""
+        };
     },
     components: {},
     mounted() {
@@ -90,7 +87,11 @@ export default {
             return this.$store.getters.getBlogPosts;
         }
     },
-    methods: {}
+    methods: {
+        RealSearch() {
+            this.$store.dispatch("searchPosts", this.keyword);
+        }
+    }
 };
 </script>
 

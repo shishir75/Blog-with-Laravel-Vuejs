@@ -43,6 +43,9 @@ export default {
         },
         getPostsByCategory(state, payload) {
             return (state.blogPosts = payload);
+        },
+        searchPosts(state, payload) {
+            return (state.blogPosts = payload);
         }
     },
     actions: {
@@ -79,6 +82,12 @@ export default {
             axios.get("/public/category/" + id).then(response => {
                 console.log(response.data.posts);
                 context.commit("getPostsByCategory", response.data.posts);
+            });
+        },
+        searchPosts(context, keyword) {
+            axios.get("/public/search?s=" + keyword).then(response => {
+                console.log(response.data.posts);
+                context.commit("searchPosts", response.data.posts);
             });
         }
     }

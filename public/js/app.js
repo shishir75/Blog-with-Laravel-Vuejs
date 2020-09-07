@@ -3668,14 +3668,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      keyword: ""
+    };
   },
   components: {},
   mounted: function mounted() {
@@ -3691,7 +3688,11 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getBlogPosts;
     }
   },
-  methods: {}
+  methods: {
+    RealSearch: function RealSearch() {
+      this.$store.dispatch("searchPosts", this.keyword);
+    }
+  }
 });
 
 /***/ }),
@@ -89133,7 +89134,47 @@ var render = function() {
   return _c("span", [
     _c("div", { staticClass: "span4" }, [
       _c("aside", { staticClass: "right-sidebar" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "widget" }, [
+          _c("form", { staticClass: "form-search" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.keyword,
+                  expression: "keyword"
+                }
+              ],
+              staticClass: "input-medium search-query",
+              attrs: { placeholder: "Type something", type: "text" },
+              domProps: { value: _vm.keyword },
+              on: {
+                keyup: _vm.RealSearch,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.keyword = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-square btn-theme",
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.RealSearch($event)
+                  }
+                }
+              },
+              [_vm._v("\n                        Search\n                    ")]
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "widget" }, [
           _c("h5", { staticClass: "widgetheading" }, [_vm._v("Categories")]),
@@ -89220,59 +89261,12 @@ var render = function() {
             }),
             0
           )
-        ]),
-        _vm._v(" "),
-        _vm._m(1)
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "widget" }, [
-      _c("form", { staticClass: "form-search" }, [
-        _c("input", {
-          staticClass: "input-medium search-query",
-          attrs: { placeholder: "Type something", type: "text" }
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-square btn-theme",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("\n                        Search\n                    ")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "widget" }, [
-      _c("h5", { staticClass: "widgetheading" }, [_vm._v("Popular tags")]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "tags" }, [
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Web design")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Trends")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Technology")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Internet")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Tutorial")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Development")])])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -107287,6 +107281,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getPostsByCategory: function getPostsByCategory(state, payload) {
       return state.blogPosts = payload;
+    },
+    searchPosts: function searchPosts(state, payload) {
+      return state.blogPosts = payload;
     }
   },
   actions: {
@@ -107323,6 +107320,12 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/public/category/" + id).then(function (response) {
         console.log(response.data.posts);
         context.commit("getPostsByCategory", response.data.posts);
+      });
+    },
+    searchPosts: function searchPosts(context, keyword) {
+      axios.get("/public/search?s=" + keyword).then(function (response) {
+        console.log(response.data.posts);
+        context.commit("searchPosts", response.data.posts);
       });
     }
   }
