@@ -36,6 +36,15 @@ class BlogController extends Controller
         ], 200 );
     }
 
+    public function latestPosts()
+    {
+        $posts = Post::latest()->take( 4 )->get();
+
+        return response()->json( [
+            'posts' => $posts,
+        ], 200 );
+    }
+
     public function search( Request $request )
     {
         $keyword = $request->get( 's' );

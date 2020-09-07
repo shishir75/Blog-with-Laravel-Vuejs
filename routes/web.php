@@ -22,6 +22,7 @@ Route::group( ['middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.',
 Route::group( ['prefix' => 'public'], function () {
     Route::get( 'blog', 'BlogController@index' );
     Route::get( 'blog/{id}', 'BlogController@show' );
+    Route::get( 'latestPosts', 'BlogController@latestPosts' );
     Route::get( 'search', 'BlogController@search' );
     Route::get( 'category', 'CategoryController@index' );
     Route::get( 'category/{id}', 'CategoryController@show' );

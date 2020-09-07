@@ -3665,11 +3665,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3680,15 +3675,15 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   mounted: function mounted() {
     this.$store.dispatch("sidebarCategories");
-    this.$store.dispatch("getBlogPosts");
+    this.$store.dispatch("getLatestPosts");
   },
   created: function created() {},
   computed: {
     categories: function categories() {
       return this.$store.getters.sidebarCategories;
     },
-    getBlogPosts: function getBlogPosts() {
-      return this.$store.getters.getBlogPosts;
+    getLatestPosts: function getLatestPosts() {
+      return this.$store.getters.getLatestPosts;
     }
   },
   methods: {
@@ -89223,43 +89218,31 @@ var render = function() {
           _c(
             "ul",
             { staticClass: "recent" },
-            _vm._l(_vm.getBlogPosts, function(post, index) {
+            _vm._l(_vm.getLatestPosts, function(post) {
               return _c("li", { key: post.id }, [
-                index < 4
-                  ? _c("span", [
-                      _c("img", {
-                        staticClass: "pull-left",
-                        staticStyle: { width: "65px", height: "65px" },
-                        attrs: { src: "/upload/" + post.photo, alt: post.title }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "h6",
-                        [
-                          _c(
-                            "router-link",
-                            { attrs: { to: "/blog/" + post.id } },
-                            [
-                              _vm._v(
-                                _vm._s(_vm._f("shortLength")(post.title, 30))
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          "\n                                " +
-                            _vm._s(
-                              _vm._f("shortLength")(post.description, 70)
-                            ) +
-                            "\n                            "
-                        )
-                      ])
+                _c("img", {
+                  staticClass: "pull-left",
+                  staticStyle: { width: "65px", height: "65px" },
+                  attrs: { src: "/upload/" + post.photo, alt: post.title }
+                }),
+                _vm._v(" "),
+                _c(
+                  "h6",
+                  [
+                    _c("router-link", { attrs: { to: "/blog/" + post.id } }, [
+                      _vm._v(_vm._s(_vm._f("shortLength")(post.title, 30)))
                     ])
-                  : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                            " +
+                      _vm._s(_vm._f("shortLength")(post.description, 70)) +
+                      "\n                        "
+                  )
+                ])
               ])
             }),
             0
@@ -107247,6 +107230,7 @@ __webpack_require__.r(__webpack_exports__);
     posts: [],
     blogPosts: [],
     post: [],
+    latestPosts: [],
     sidebarCategories: []
   },
   getters: {
@@ -107264,6 +107248,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     sidebarCategories: function sidebarCategories(state) {
       return state.sidebarCategories;
+    },
+    getLatestPosts: function getLatestPosts(state) {
+      return state.latestPosts;
     }
   },
   mutations: {
@@ -107281,6 +107268,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     sidebarCategories: function sidebarCategories(state, payload) {
       return state.sidebarCategories = payload;
+    },
+    getLatestPosts: function getLatestPosts(state, payload) {
+      return state.latestPosts = payload;
     },
     getPostsByCategory: function getPostsByCategory(state, payload) {
       return state.blogPosts = payload;
@@ -107317,6 +107307,11 @@ __webpack_require__.r(__webpack_exports__);
     sidebarCategories: function sidebarCategories(context) {
       axios.get("/public/category").then(function (response) {
         context.commit("sidebarCategories", response.data.categories);
+      });
+    },
+    getLatestPosts: function getLatestPosts(context) {
+      axios.get("/public/latestPosts").then(function (response) {
+        context.commit("getLatestPosts", response.data.posts);
       });
     },
     getPostsByCategory: function getPostsByCategory(context, id) {

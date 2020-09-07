@@ -38,26 +38,21 @@
                 <div class="widget">
                     <h5 class="widgetheading">Latest posts</h5>
                     <ul class="recent">
-                        <li
-                            v-for="(post, index) in getBlogPosts"
-                            :key="post.id"
-                        >
-                            <span v-if="index < 4">
-                                <img
-                                    :src="`/upload/${post.photo}`"
-                                    class="pull-left"
-                                    :alt="post.title"
-                                    style="width: 65px; height:65px"
-                                />
-                                <h6>
-                                    <router-link :to="`/blog/${post.id}`">{{
-                                        post.title | shortLength(30)
-                                    }}</router-link>
-                                </h6>
-                                <p>
-                                    {{ post.description | shortLength(70) }}
-                                </p>
-                            </span>
+                        <li v-for="post in getLatestPosts" :key="post.id">
+                            <img
+                                :src="`/upload/${post.photo}`"
+                                class="pull-left"
+                                :alt="post.title"
+                                style="width: 65px; height:65px"
+                            />
+                            <h6>
+                                <router-link :to="`/blog/${post.id}`">{{
+                                    post.title | shortLength(30)
+                                }}</router-link>
+                            </h6>
+                            <p>
+                                {{ post.description | shortLength(70) }}
+                            </p>
                         </li>
                     </ul>
                 </div>
@@ -77,15 +72,15 @@ export default {
     components: {},
     mounted() {
         this.$store.dispatch("sidebarCategories");
-        this.$store.dispatch("getBlogPosts");
+        this.$store.dispatch("getLatestPosts");
     },
     created() {},
     computed: {
         categories() {
             return this.$store.getters.sidebarCategories;
         },
-        getBlogPosts() {
-            return this.$store.getters.getBlogPosts;
+        getLatestPosts() {
+            return this.$store.getters.getLatestPosts;
         }
     },
     methods: {
