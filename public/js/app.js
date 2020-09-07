@@ -3935,7 +3935,7 @@ __webpack_require__.r(__webpack_exports__);
     BlogSidebar: _BlogSidebarComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
-    this.$store.dispatch("getSinglePost", this.$route.params.id);
+    this.singlePost();
   },
   created: function created() {},
   computed: {
@@ -3944,8 +3944,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    singlePost: function singlePost() {
+      this.$store.dispatch("getSinglePost", this.$route.params.id);
+    },
     postPhoto: function postPhoto(img) {
       return "/upload/" + img;
+    }
+  },
+  watch: {
+    $route: function $route(to, from) {
+      this.singlePost();
     }
   }
 });

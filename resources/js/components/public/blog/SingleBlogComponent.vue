@@ -249,7 +249,7 @@ export default {
         BlogSidebar
     },
     mounted() {
-        this.$store.dispatch("getSinglePost", this.$route.params.id);
+        this.singlePost();
     },
     created() {},
     computed: {
@@ -258,8 +258,16 @@ export default {
         }
     },
     methods: {
+        singlePost() {
+            this.$store.dispatch("getSinglePost", this.$route.params.id);
+        },
         postPhoto(img) {
             return "/upload/" + img;
+        }
+    },
+    watch: {
+        $route(to, from) {
+            this.singlePost();
         }
     }
 };
