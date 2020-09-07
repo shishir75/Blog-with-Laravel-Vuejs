@@ -12,6 +12,7 @@ import EditPost from "./components/admin/post/EditComponent.vue";
 import PublicHome from "./components/public/HomeComponent.vue";
 import BlogPostsComponent from "./components/public/blog/BlogPostsComponent.vue";
 import SingleBlogComponent from "./components/public/blog/SingleBlogComponent.vue";
+import SearchPostsComponent from "./components/public/blog/SearchPostsComponent.vue";
 
 Vue.use(VueRouter);
 
@@ -29,7 +30,8 @@ const router = new VueRouter({
         { path: "/", component: PublicHome }, // Frontend Route
         { path: "/blog", component: BlogPostsComponent },
         { path: "/blog/:id", component: SingleBlogComponent },
-        { path: "/category/:id", component: BlogPostsComponent }
+        { path: "/category/:id", component: BlogPostsComponent },
+        { path: "/search", component: SearchPostsComponent }
     ]
 });
 

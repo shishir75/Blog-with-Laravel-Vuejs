@@ -7,7 +7,8 @@ export default {
         blogPosts: [],
         post: [],
         latestPosts: [],
-        sidebarCategories: []
+        sidebarCategories: [],
+        serachPosts: []
     },
     getters: {
         getCategory(state) {
@@ -27,6 +28,9 @@ export default {
         },
         getLatestPosts(state) {
             return state.latestPosts;
+        },
+        serachPosts(state) {
+            return state.serachPosts;
         }
     },
     mutations: {
@@ -52,7 +56,7 @@ export default {
             return (state.blogPosts = payload);
         },
         searchPosts(state, payload) {
-            return (state.blogPosts = payload);
+            return (state.serachPosts = payload);
         }
     },
     actions: {

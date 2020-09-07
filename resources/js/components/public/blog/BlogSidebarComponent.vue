@@ -85,6 +85,10 @@ export default {
     },
     methods: {
         RealSearch: _.debounce(function() {
+            this.$router.push({
+                path: "/search",
+                query: { keyword: this.keyword }
+            });
             this.$store.dispatch("searchPosts", this.keyword);
         }, 1000)
     }
