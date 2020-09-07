@@ -33,12 +33,25 @@
                                             >
                                             <option value="">Delete All</option>
                                         </select>
-                                        <input
-                                            type="checkbox"
-                                            name=""
-                                            id=""
-                                            class="ml-3"
-                                        />Check All
+
+                                        <div class="form-check">
+                                            <input
+                                                type="checkbox"
+                                                class="form-check-input"
+                                                id="all_select"
+                                                v-model="all_select"
+                                            />
+                                            <label
+                                                class="form-check-label"
+                                                for="all_select"
+                                                @click.prevent="selectAll"
+                                                >{{
+                                                    all_select == true
+                                                        ? "Un-check All"
+                                                        : "Check All"
+                                                }}</label
+                                            >
+                                        </div>
                                     </th>
                                     <th>Serial</th>
                                     <th>Category Name</th>
@@ -100,7 +113,8 @@ export default {
     data() {
         return {
             categoryItem: [],
-            select: ""
+            select: "",
+            all_select: false
         };
     },
     mounted() {
@@ -181,6 +195,17 @@ export default {
                     });
                 }
             });
+        },
+        selectAll() {
+            if (this.all_select == false) {
+                this.all_select = true;
+                for (let category in this.allCategory) {
+                    this.categoryItem.push(this.allCategory[category].id);
+                }
+            } else {
+                this.all_select = false;
+                this.categoryItem = [];
+            }
         }
     }
 };

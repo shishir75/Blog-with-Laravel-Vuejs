@@ -2169,12 +2169,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       categoryItem: [],
-      select: ""
+      select: "",
+      all_select: false
     };
   },
   mounted: function mounted() {
@@ -2254,6 +2268,18 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
+    },
+    selectAll: function selectAll() {
+      if (this.all_select == false) {
+        this.all_select = true;
+
+        for (var category in this.allCategory) {
+          this.categoryItem.push(this.allCategory[category].id);
+        }
+      } else {
+        this.all_select = false;
+        this.categoryItem = [];
+      }
     }
   }
 });
@@ -87443,11 +87469,70 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _c("input", {
-                        staticClass: "ml-3",
-                        attrs: { type: "checkbox", name: "", id: "" }
-                      }),
-                      _vm._v("Check All\n                                ")
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.all_select,
+                              expression: "all_select"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", id: "all_select" },
+                          domProps: {
+                            checked: Array.isArray(_vm.all_select)
+                              ? _vm._i(_vm.all_select, null) > -1
+                              : _vm.all_select
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.all_select,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.all_select = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.all_select = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.all_select = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "all_select" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.selectAll($event)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.all_select == true
+                                  ? "Un-check All"
+                                  : "Check All"
+                              )
+                            )
+                          ]
+                        )
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("th", [_vm._v("Serial")]),
