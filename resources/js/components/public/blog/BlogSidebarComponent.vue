@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 export default {
     data() {
         return {
@@ -88,9 +89,9 @@ export default {
         }
     },
     methods: {
-        RealSearch() {
+        RealSearch: _.debounce(function() {
             this.$store.dispatch("searchPosts", this.keyword);
-        }
+        }, 1000)
     }
 };
 </script>
